@@ -1,0 +1,17 @@
+{
+  "name": "rockpolls",
+  "version": "1.0.0",
+  "description": "ask and answer questions about rock and roll",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rock",
+    "roll",
+    "fcc",
+    "poll"
+  ],
+  "author": "Doug Riblet",
+  "license": "ISC"
+}
