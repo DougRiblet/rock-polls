@@ -4,7 +4,14 @@
   "description": "ask and answer questions about rock and roll",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --watch",
+    "sass": "node-sass client/scss/main.scss client/public/css/main.css",
+    "test": "jest --verbose",
+    "flow": "flow",
+    "lint": "eslint --ext .jsx client"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./enzyme_adapter.js"
   },
   "keywords": [
     "rock",
