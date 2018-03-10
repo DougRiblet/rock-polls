@@ -11,7 +11,10 @@
     "lint": "eslint --ext .jsx client"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./enzyme_adapter.js"
+    "setupTestFrameworkScriptFile": "./enzyme_adapter.js",
+    "setupFiles": [
+      "raf/polyfill"
+    ]
   },
   "keywords": [
     "rock",
@@ -28,7 +31,7 @@
     "express": "^4.16.2",
     "mongodb": "^3.0.4",
     "mongoose": "^5.0.9",
-    "node": "^9.8.0",
+    "raf": "^3.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
