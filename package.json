@@ -1,12 +1,13 @@
 {
-  "name": "rockpolls",
+  "name": "boilerplate-react-redux",
   "version": "1.0.0",
-  "description": "ask and answer questions about rock and roll",
+  "description": "Boilerplate using React and Redux",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./server/server.js",
     "build": "webpack --watch",
     "sass": "node-sass client/scss/main.scss client/public/css/main.css",
-    "test": "jest --verbose",
+    "test": "jest ./client --verbose",
     "flow": "flow",
     "lint": "eslint --ext .jsx client"
   },
@@ -17,10 +18,7 @@
     ]
   },
   "keywords": [
-    "rock",
-    "roll",
-    "fcc",
-    "poll"
+    "react",
   ],
   "author": "Doug Riblet",
   "license": "ISC",

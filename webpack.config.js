@@ -15,10 +15,6 @@ module.exports = {
     reasons: true,
     chunks: false
   },
-  devServer: {
-    contentBase: path.join(__dirname, '/client/public'),
-    publicPath: '/bundle/'
-  },
   module: {
     loaders: [
       {
