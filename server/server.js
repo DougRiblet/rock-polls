@@ -2,12 +2,27 @@ var express = require('express');
 var path = require('path');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 var app = express();
 var port = process.env.PORT || 8000;
 
+// express setup
+app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+// passport setup
+app.use(session({ secret: 'scarletfireestimatedchinarider'}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 
 // MONGOOSE 
 
