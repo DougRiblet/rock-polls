@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './Home/Home';
-import Admin from './Admin/Admin';
-import Login from './Login/Login';
+import Home from './Home';
+import Admin from './Admin';
+import Login from './Login';
 
 export default class Main extends Component {
   render() {

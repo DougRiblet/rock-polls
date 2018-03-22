@@ -24,32 +24,32 @@ app.use(passport.session());
 app.use(flash());
 
 
-// MONGOOSE 
+// // MONGOOSE 
 
-if(!process.env.MONGODB_URI){
-  var uri = require( './uri' ).uri;
-} else {
-  var uri = process.env.MONGODB_URI;
-}
+// if(!process.env.MONGODB_URI){
+//   var uri = require( './uri' ).uri;
+// } else {
+//   var uri = process.env.MONGODB_URI;
+// }
 
-mongoose.Promise = require('bluebird');
+// mongoose.Promise = require('bluebird');
 
-mongoose.connect(uri)
-  .then(() => {
-    console.log('Mongoose connection established');
-  })
-  .catch(err => {
-    console.error('App starting error:', err.stack);
-    process.exit(1);
-  });
+// mongoose.connect(uri)
+//   .then(() => {
+//     console.log('Mongoose connection established');
+//   })
+//   .catch(err => {
+//     console.error('App starting error:', err.stack);
+//     process.exit(1);
+//   });
 
-// SCHEMA
+// // SCHEMA
 
-var boilerSchema = mongoose.Schema({
-  // define schema here
-});
+// var boilerSchema = mongoose.Schema({
+//   // define schema here
+// });
 
-var Boiler = mongoose.model('Boiler', boilerSchema);
+// var Boiler = mongoose.model('Boiler', boilerSchema);
 
 // ENDPOINTS
 
