@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 var app = express();
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8357;
 
 // express setup
 app.use(morgan('dev'));

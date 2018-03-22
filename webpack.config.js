@@ -16,7 +16,7 @@ module.exports = {
     chunks: false
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         loader: 'babel-loader'
