@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // passport setup
-app.use(session({ secret: 'scarletfireestimatedchinarider'}));
+var session_secret = require('./secret').secret;
+app.use(session({ secret: session_secret }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
