@@ -1,29 +1,17 @@
-var express = require('express');
-var path = require('path');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var flash = require('connect-flash');
-var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
-var app = express();
-var port = process.env.PORT || 8357;
+const app = express();
+let port = process.env.PORT || 8357;
 
-// express setup
 app.use(morgan('dev'));
-app.use(cookieParser());
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
-// passport setup
-var session_secret = require('./secret').secret;
-app.use(session({ secret: session_secret }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
 
 // // MONGOOSE 
 
@@ -52,7 +40,7 @@ app.use(flash());
 
 // var Boiler = mongoose.model('Boiler', boilerSchema);
 
-// ENDPOINTS
+
 
 app.use(express.static(path.join(__dirname, '../client/public')));
 
@@ -60,7 +48,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
-// put CRUD endpoints here
+
 
 app.get('/favicon.ico', function (req, res) {
   res.sendStatus(200);
@@ -70,7 +58,7 @@ app.use(function (req, res, next) {
   res.status(404).send('Error 404');
 });
 
-// SERVER
+
 
 app.listen(port, function () {
   console.log('App listening on port ' + port);

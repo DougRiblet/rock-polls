@@ -1,8 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-
-// Borrowing from tutorial at:
-// https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+var bcrypt = require('bcrypt');
 
 var userSchema = mongoose.Schema({
   local: {
