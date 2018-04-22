@@ -1,4 +1,3 @@
 node_modules
 
 server/uri.js
-server/secret.js
