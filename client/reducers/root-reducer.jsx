@@ -7,12 +7,12 @@ const reducer = (state: Object, action: Object): Object => {
   switch (action.type) {
     case types.LOGIN_USER:
       return Object.assign({}, state, {
-        isAuthenticated: true,
+        authenticated: true,
         user: action.user,
       });
     case types.LOGOUT_USER:
       return Object.assign({}, state, {
-        isAuthenticated: false,
+        authenticated: false,
         user: {},
       });
     default:

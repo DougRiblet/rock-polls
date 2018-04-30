@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Admin from './Admin';
 import Login from './Login';
+import ReqAuth from './components/Auth/require-authentication';
 
 export default class Main extends Component {
   render() {
@@ -10,7 +11,7 @@ export default class Main extends Component {
       <main>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/admin' component={Admin} />
+          <Route path='/admin' component={ReqAuth(Admin)} />
           <Route path='/login' component={Login} />
         </Switch>
       </main>

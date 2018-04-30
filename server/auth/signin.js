@@ -21,3 +21,5 @@ let signin = function(req, res){
     });
   });
 }
+
+module.exports = signin;
