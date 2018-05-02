@@ -18,11 +18,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 // MONGOOSE
 
 let User = require('./models/user');
+let uri;
 
 if(!process.env.MONGODB_URI){
-  let uri = require( './uri' ).uri;
+  uri = require( './uri' ).uri;
 } else {
-  let uri = process.env.MONGODB_URI;
+  uri = process.env.MONGODB_URI;
 }
 
 mongoose.Promise = require('bluebird');

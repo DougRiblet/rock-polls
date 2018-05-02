@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 if(!process.env.JWT_KEY){
-  let jwt_key = require('./jwt_key').key;
+  let jwt_key = require('../jwt_key').key;
 } else {
   let jwt_key = process.env.JWT_KEY;
 }
