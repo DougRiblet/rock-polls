@@ -83,6 +83,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./client/actions/actions.jsx":
+/*!************************************!*\
+  !*** ./client/actions/actions.jsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.logOutUser = exports.logInUser = undefined;\n\nvar _actionTypes = __webpack_require__(/*! ./action-types */ \"./client/actions/action-types.jsx\");\n\nvar types = _interopRequireWildcard(_actionTypes);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nvar logInUser = exports.logInUser = function logInUser() {\n  return {\n    type: types.LOGIN_USER\n\n  };\n};\n\nvar logOutUser = exports.logOutUser = function logOutUser() {\n  return {\n    type: types.LOGOUT_USER\n\n  };\n};\n\n//# sourceURL=webpack:///./client/actions/actions.jsx?");
+
+/***/ }),
+
 /***/ "./client/components/Admin/index.jsx":
 /*!*******************************************!*\
   !*** ./client/components/Admin/index.jsx ***!
@@ -151,7 +163,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Login = function Login() {\n  return _react2.default.createElement(\n    'div',\n    null,\n    '## LOGIN PAGE ##'\n  );\n};\n\nexports.default = Login;\n\n//# sourceURL=webpack:///./client/components/Login/index.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/index.js\");\n\nvar _actions = __webpack_require__(/*! ../../actions/actions */ \"./client/actions/actions.jsx\");\n\nvar _loginPresentational = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module \\\"./login-presentational\\\"\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\n\nvar _loginPresentational2 = _interopRequireDefault(_loginPresentational);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    authenticated: state.authenticated,\n    user: state.user\n  };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return (0, _redux.bindActionCreators)({ logInUser: _actions.logInUser }, dispatch);\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_loginPresentational2.default);\n\n//# sourceURL=webpack:///./client/components/Login/index.jsx?");
 
 /***/ }),
 
@@ -187,7 +199,7 @@ eval("\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar initialState = {\n  authenticated: true,\n  user: {}\n};\n\nexports.default = initialState;\n\n//# sourceURL=webpack:///./client/initial/initialState.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar initialState = {\n  authenticated: false,\n  user: {}\n};\n\nexports.default = initialState;\n\n//# sourceURL=webpack:///./client/initial/initialState.jsx?");
 
 /***/ }),
 
