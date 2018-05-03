@@ -3,7 +3,7 @@
 import React from 'react';
 
 type Props = {
-  logInUser: (string, string) => mixed,
+  signUpUser: (string, string) => mixed,
 };
 
 type State = {
@@ -11,7 +11,7 @@ type State = {
   password: string,
 };
 
-export default class Login extends React.Component<Props, State> {
+export default class Signup extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -40,13 +40,13 @@ export default class Login extends React.Component<Props, State> {
   // eslint-disable-next-line no-undef
   handleSubmit(event: SyntheticInputEvent<*>) {
     event.preventDefault();
-    this.props.logInUser(this.state.username, this.state.password);
+    this.props.signUpUser(this.state.username, this.state.password);
   }
 
   render() {
     return (
-      <div id='login'>
-        <h3>Log In</h3>
+      <div id='signup'>
+        <h3>Sign Up</h3>
         <form onSubmit={this.handleSubmit}>
           <label>
             Username: 
