@@ -1,0 +1,7 @@
+#login {
+  margin-left: 150px; }
+
+input#username-input, input#password-input {
+  padding: 4px 8px;
+  margin: 8px 6px;
+  box-sizing: border-box; }

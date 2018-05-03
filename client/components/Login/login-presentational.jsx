@@ -3,9 +3,12 @@
 import React from 'react';
 
 type Props = {
+  logInUser: (string, string) => mixed,
 };
 
 type State = {
+  username: string,
+  password: string,
 };
 
 export default class Login extends React.Component<Props, State> {
@@ -37,33 +40,40 @@ export default class Login extends React.Component<Props, State> {
   // eslint-disable-next-line no-undef
   handleSubmit(event: SyntheticInputEvent<*>) {
     event.preventDefault();
+    this.props.logInUser(this.state.username, this.state.password);
   }
 
   render() {
     return (
       <div id='login'>
         <form onSubmit={this.handleSubmit}>
-          <input
-            id='username-input'
-            type='text'
-            ref={(input) => { this.textInput = input; }}
-            value={this.state.username}
-            minLength='4'
-            maxLength='15'
-            size='20'
-            onChange={this.handleChangeUsername}
-          />
+          <label>
+            Username: 
+            <input
+              id='username-input'
+              type='text'
+              ref={(input) => { this.textInput = input; }}
+              value={this.state.username}
+              minLength='4'
+              maxLength='15'
+              size='20'
+              onChange={this.handleChangeUsername}
+            />
+          </label>
           <br/>
-          <input
-            id='password-input'
-            type='text'
-            ref={(input) => { this.textInput = input; }}
-            value={this.state.password}
-            minLength='6'
-            maxLength='19'
-            size='20'
-            onChange={this.handleChangeUsername}
-          />
+          <label>
+          Password: 
+            <input
+              id='password-input'
+              type='text'
+              ref={(input) => { this.textInput = input; }}
+              value={this.state.password}
+              minLength='6'
+              maxLength='19'
+              size='20'
+              onChange={this.handleChangeUsername}
+            />
+          </label>
         </form>
       </div>
     );
