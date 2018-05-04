@@ -1,18 +1,14 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-let signup = function(req, res) {
-  User.create({
-    username: req.body.username,
-    password: req.body.password,
-  }, function(err, data){
-    if (err) {
-      res.status(400).send("Error in signup");
-      return;
-    }
-    res.status(200).json(data);
-    return;
-  })
+let signup = async function(req, res) {
+  try {
+    let newuser = await User.create(req.body);
+    let { username, id } = newuser;
+    return res.status(200).json({ username, id });
+  } catch (error) {
+    return res.status(400).send(error);
+  }
 };
 
 module.exports = signup;

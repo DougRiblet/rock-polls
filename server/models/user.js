@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
-var userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -13,17 +13,18 @@ var userSchema = mongoose.Schema({
   },
 });
 
-userSchema.pre("save", function(next) {
-  if (!this.isModified("password")) {
-    return next();
-  }
-  bcrypt.hash(this.password, 8, function(err, hash) {
-    if (err) {
-      return next(err);
+userSchema.pre('save', async function(next) {
+  try {
+    if (!this.isModified('password')) {
+      return next();
     }
-    this.password = hash;
-  });
-  return next();
+    let hashPass = await bcrypt.hash(this.password, 8);
+    this.password = hashPass;
+    return next();
+  } catch (error) {
+    return next(error);
+  }
+
 });
 
 userSchema.methods.comparePassword = function(candidatePassword, next) {

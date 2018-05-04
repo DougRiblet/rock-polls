@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { SignUpUser } from '../../actions/actions';
+import { signUpUser } from '../../actions/actions';
 import signupPresent from './signup-presentational';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ SignUpUser }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ signUpUser }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(signupPresent);
 

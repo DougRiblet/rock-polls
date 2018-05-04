@@ -26,7 +26,7 @@ if(!process.env.MONGODB_URI){
   uri = process.env.MONGODB_URI;
 }
 
-mongoose.Promise = require('bluebird');
+mongoose.Promise = Promise;
 
 mongoose.connect(uri)
   .then(() => {
