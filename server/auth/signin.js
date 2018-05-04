@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-if(!process.env.JWT_KEY){
-  let jwt_key = require('../jwt_key').key;
-} else {
-  let jwt_key = process.env.JWT_KEY;
-}
-
 let signin = function(req, res){
+  if(!process.env.JWT_KEY){
+    let jwt_key = require('../jwt_key').key;
+  } else {
+    let jwt_key = process.env.JWT_KEY;
+  }
+  
   User.findOne({username: req.body.username}, function(err, user){
     user.comparePassword(req.body.password, function(err, isMatch){
       if (err || !isMatch) {
