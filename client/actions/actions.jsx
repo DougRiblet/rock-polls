@@ -26,7 +26,11 @@ export const signUpUser = (username, password) => {
       password,
     })
     .then((response) => {
-      
+      console.log('### RESPONSE: ', response);
+
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
     })
 
 }

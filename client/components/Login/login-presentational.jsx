@@ -72,7 +72,7 @@ export default class Login extends React.Component<Props, State> {
               minLength='6'
               maxLength='19'
               size='20'
-              onChange={this.handleChangeUsername}
+              onChange={this.handleChangePassword}
             />
           </label>
           <br/>
