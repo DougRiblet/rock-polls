@@ -1,25 +1,27 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-let signin = function(req, res){
+let signin = async function(req, res){
+  let jwt_key;
   if(!process.env.JWT_KEY){
-    let jwt_key = require('../jwt_key').key;
+    jwt_key = require('../jwt_key').key;
   } else {
-    let jwt_key = process.env.JWT_KEY;
+    jwt_key = process.env.JWT_KEY;
   }
   
-  User.findOne({username: req.body.username}, function(err, user){
-    user.comparePassword(req.body.password, function(err, isMatch){
-      if (err || !isMatch) {
-        res.status(400).send("Invalid username or password");
-        return;
-      }
-      let {id, username} = user;
-      let token = jwt.sign({id, username}, jwt_key);
-      res.status(200).json({id, username, token});
-      return;
-    });
-  });
+  try {
+    let user = await User.findOne({username: req.body.username});
+    let compareResults = await user.comparePassword(req.body.password);
+    let { id, username } = user;
+    if (compareResults) {
+      let token = jwt.sign({ id, username }, jwt_key);
+      return res.status(200).json({ id, username, token });
+    } else {
+      return res.status(400).send('Signin rejected');
+    }
+  } catch(error) {
+      return res.status(400).send(error);
+  }
 }
 
 module.exports = signin;
