@@ -15,3 +15,13 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   box-shadow: 2px 2px 1px #444; }
+
+.show-status {
+  margin: 40px 0px;
+  background-color: #e7edfd;
+  border: 1px solid #c7cded;
+  border-radius: 5px;
+  padding: 2px 15px;
+  width: 300px;
+  font-size: 120%;
+  box-sizing: border-box; }

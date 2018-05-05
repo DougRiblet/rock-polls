@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 let User = require('./models/user');
 let uri;
-
 if(!process.env.MONGODB_URI){
   uri = require( './uri' ).uri;
 } else {
@@ -36,7 +35,6 @@ mongoose.connect(uri)
     console.error('App starting error:', err.stack);
     process.exit(1);
   });
-
 
 // ROUTES
 

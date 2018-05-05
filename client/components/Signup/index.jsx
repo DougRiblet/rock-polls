@@ -5,7 +5,8 @@ import signupPresent from './signup-presentational';
 
 const mapStateToProps = state => ({
   authenticated: state.authenticated,
-  user: state.user,
+  user_id: state.user_id,
+  username: state.username,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ signUpUser }, dispatch);

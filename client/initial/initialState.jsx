@@ -1,6 +1,7 @@
 const initialState = {
   authenticated: false,
-  user: {}
+  user_id: '',
+  username: '',
 };
 
 export default initialState;
