@@ -11,7 +11,7 @@ const reducer = (state: Object, action: Object): Object => {
         user_id: action.id,
         username: action.username,
       });
-    case types.LOGIN_USER:
+    case types.LOGIN_SUCCESS:
       return Object.assign({}, state, {
         authenticated: true,
         user_id: action.id,

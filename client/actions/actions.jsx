@@ -16,10 +16,10 @@ const signUpSuccess = (id, username) => ({
   username,
 });
 
-export const logOutUser = () => ({
-  type: types.LOGOUT_USER,
-
-});
+export const logOutUser = () => {
+  localStorage.removeItem('token');
+  return { type: types.LOGOUT_USER };
+};
 
 /* eslint-disable func-names, no-console */
 
