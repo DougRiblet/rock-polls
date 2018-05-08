@@ -23,36 +23,32 @@ export const logOutUser = () => {
 
 /* eslint-disable func-names, no-console */
 
-export const signUpUser = (username, password) => {
-  return function (dispatch: Dispatch<*>) {
-    axios.post('http://localhost:8357/auth/signup', {
-        username,
-        password,
-      })
-      .then((response) => {
-        dispatch(signUpSuccess(response.data.id, response.data.username));
-        sessionStorage.setItem('token', response.data.token);
-      })
-      .catch((error) => {
-        console.log('### ERROR: ', error);
-      })
-  };
-}
+export const signUpUser = (username, password) => function (dispatch: Dispatch<*>) {
+  axios.post('http://localhost:8357/auth/signup', {
+    username,
+    password,
+  })
+    .then((response) => {
+      dispatch(signUpSuccess(response.data.id, response.data.username));
+      sessionStorage.setItem('token', response.data.token);
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    });
+};
 
-export const logInUser = (username, password) => {
-  return function (dispatch: Dispatch<*>) {
-    axios.post('http://localhost:8357/auth/signin', {
-        username,
-        password,
-      })
-      .then((response) => {
-        dispatch(logInSuccess(response.data.id, response.data.username));
-        sessionStorage.setItem('token', response.data.token);
-      })
-      .catch((error) => {
-        console.log('### ERROR: ', error);
-      })
-  };
-}
+export const logInUser = (username, password) => function (dispatch: Dispatch<*>) {
+  axios.post('http://localhost:8357/auth/signin', {
+    username,
+    password,
+  })
+    .then((response) => {
+      dispatch(logInSuccess(response.data.id, response.data.username));
+      sessionStorage.setItem('token', response.data.token);
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    });
+};
 
 /* eslint-enable func-names, no-console */
