@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('./user.js');
+const Answer = require('./answer.js');
 
 const pollSchema = mongoose.Schema({
   question: {
@@ -9,11 +10,13 @@ const pollSchema = mongoose.Schema({
   },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true,
   },
-
-  },
+  answers: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Answer',
+  }],
 });
 
 module.exports = mongoose.model('Poll', pollSchema);

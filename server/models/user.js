@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Poll = require('./poll.js');
 
 const userSchema = mongoose.Schema({
   username: {
@@ -11,6 +12,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  polls: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Poll',
+  }],
 });
 
 userSchema.pre('save', async function(next) {
