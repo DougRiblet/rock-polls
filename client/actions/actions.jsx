@@ -17,7 +17,7 @@ const signUpSuccess = (id, username) => ({
 });
 
 export const logOutUser = () => {
-  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
   return { type: types.LOGOUT_USER };
 };
 
@@ -31,7 +31,7 @@ export const signUpUser = (username, password) => {
       })
       .then((response) => {
         dispatch(signUpSuccess(response.data.id, response.data.username));
-        localStorage.setItem('token', response.data.token);
+        sessionStorage.setItem('token', response.data.token);
       })
       .catch((error) => {
         console.log('### ERROR: ', error);
@@ -47,7 +47,7 @@ export const logInUser = (username, password) => {
       })
       .then((response) => {
         dispatch(logInSuccess(response.data.id, response.data.username));
-        localStorage.setItem('token', response.data.token);
+        sessionStorage.setItem('token', response.data.token);
       })
       .catch((error) => {
         console.log('### ERROR: ', error);

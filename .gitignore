@@ -1,4 +1,3 @@
 node_modules
 
-server/uri.js
-server/jwt_key.js
+server/.env
