@@ -52,7 +52,7 @@ export default class Login extends React.Component<Props, State> {
         <h3>Log In</h3>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Username: 
+            Username:
             <input
               id='username-input'
               type='text'
@@ -64,9 +64,9 @@ export default class Login extends React.Component<Props, State> {
               onChange={this.handleChangeUsername}
             />
           </label>
-          <br/>
+          <br />
           <label>
-          Password: 
+          Password:
             <input
               id='password-input'
               type='text'
@@ -78,7 +78,7 @@ export default class Login extends React.Component<Props, State> {
               onChange={this.handleChangePassword}
             />
           </label>
-          <br/>
+          <br />
           <input type='submit' value='submit' />
         </form>
         <div className='show-status'>
