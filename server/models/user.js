@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+// eslint-disable-next-line no-unused-vars
 const Poll = require('./poll.js');
 
 const userSchema = mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   polls: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -18,23 +19,22 @@ const userSchema = mongoose.Schema({
   }],
 });
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function userPreSave(next) {
   try {
     if (!this.isModified('password')) {
       return next();
     }
-    let hashPass = await bcrypt.hash(this.password, 8);
+    const hashPass = await bcrypt.hash(this.password, 8);
     this.password = hashPass;
     return next();
   } catch (error) {
     return next(error);
   }
-
 });
 
-userSchema.methods.comparePassword = async function(candidatePassword, next) {
+userSchema.methods.comparePassword = async function userComparePW(candidatePassword, next) {
   try {
-    let compareResults = await bcrypt.compare(candidatePassword, this.password);
+    const compareResults = await bcrypt.compare(candidatePassword, this.password);
     return compareResults;
   } catch (err) {
     return next(err);

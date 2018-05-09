@@ -9,7 +9,7 @@
     "sass": "node-sass client/scss/main.scss client/public/css/main.css",
     "test": "jest ./client --verbose",
     "flow": "flow",
-    "lint": "eslint --ext .js server/auth"
+    "lint": "eslint --ext .js server/middleware server/models"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./enzyme_adapter.js",
