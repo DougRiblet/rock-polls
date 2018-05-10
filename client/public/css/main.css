@@ -25,3 +25,17 @@ input[type=submit] {
   width: 500px;
   font-size: 120%;
   box-sizing: border-box; }
+
+#logout {
+  margin-left: 150px; }
+  #logout div button {
+    width: 160px;
+    height: 60px;
+    font-size: 150%;
+    background-color: red;
+    color: papayawhip;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 4px 4px 2px #444; }
+    #logout div button:hover {
+      background-color: orange; }
