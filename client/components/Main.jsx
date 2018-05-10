@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Admin from './Admin';
+import Create from './Create';
 import Login from './Login';
 import Signup from './Signup';
 import ReqAuth from './Auth/require-authentication';
@@ -11,6 +12,7 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={Home} />
       <Route path='/admin' component={ReqAuth(Admin)} />
+      <Route path='/create' component={ReqAuth(Create)} />
       <Route path='/login' component={Login} />
       <Route path='/signup' component={Signup} />
     </Switch>

@@ -11,4 +11,3 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({ createNewPoll }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(createPresent);
-
