@@ -4,6 +4,8 @@ import axios from 'axios';
 import type { Dispatch } from 'redux';
 import * as types from './action-types';
 
+const baseUrl = 'http://localhost:8357/';
+
 const logInSuccess = (id, username) => ({
   type: types.LOGIN_SUCCESS,
   id,
@@ -24,7 +26,7 @@ export const logOutUser = () => {
 /* eslint-disable func-names, no-console */
 
 export const signUpUser = (username, password) => function (dispatch: Dispatch<*>) {
-  axios.post('http://localhost:8357/auth/signup', {
+  axios.post(`${baseUrl}auth/signup`, {
     username,
     password,
   })
@@ -38,13 +40,23 @@ export const signUpUser = (username, password) => function (dispatch: Dispatch<*
 };
 
 export const logInUser = (username, password) => function (dispatch: Dispatch<*>) {
-  axios.post('http://localhost:8357/auth/signin', {
+  axios.post(`${baseUrl}auth/signin`, {
     username,
     password,
   })
     .then((response) => {
       dispatch(logInSuccess(response.data.id, response.data.username));
       sessionStorage.setItem('token', response.data.token);
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    });
+};
+
+export const createNewPoll = (poll) => function (dispatch: Dispatch<*>) {
+  axios.post(`${baseUrl}poll/create`, poll)
+    .then((response) => {
+      dispatch(createSuccess());
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
