@@ -4,7 +4,6 @@ import { createNewPoll } from '../../actions/actions';
 import createPresent from './create-presentational';
 
 const mapStateToProps = state => ({
-  authenticated: state.authenticated,
   user_id: state.user_id,
   username: state.username,
 });
