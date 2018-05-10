@@ -54,7 +54,14 @@ export const logInUser = (username, password) => function (dispatch: Dispatch<*>
 };
 
 export const createNewPoll = (poll) => function (dispatch: Dispatch<*>) {
-  axios.post(`${baseUrl}poll/create`, poll)
+  const token = sessionStorage.getItem('token');
+  const axiosConfig = {
+    method: 'POST', 
+    url: `${baseUrl}poll/create`,
+    data: poll,
+    headers: { 'Authorization': `Bearer: ${token}` },
+  }
+  axios(axiosConfig)
     .then((response) => {
       dispatch(createSuccess());
     })
