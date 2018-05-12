@@ -22,13 +22,11 @@ export default class Create extends React.Component<Props, State> {
       answers: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChangeUsername = this.handleChangeUsername.bind(this);
-    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleChangeQuestion = this.handleChangeQuestion.bind(this);
   }
 
   handleSubmit: Function;
-  handleChangeUsername: Function;
-  handleChangePassword: Function;
+  handleChangeQuestion: Function;
 
   // eslint-disable-next-line no-undef
   handleChangeUsername(event: SyntheticInputEvent<*>) {
@@ -57,14 +55,21 @@ export default class Create extends React.Component<Props, State> {
       <div id='create'>
         <h3>Create New Poll</h3>
         <form onSubmit={this.handleSubmit}>
+          <h4 className='create-label'>Question:</h4>
           <label>
-            Question:
-            <input
+            <textarea
+              id='question-input'
+              ref={(input) => { this.textInput = input; }}
+              value={this.state.question}
+              maxLength='390'
+              rows='5'
+              cols='90'
+              onChange={this.handleChangeUsername}
             />
           </label>
           <br />
+          <h4 className='create-label'>Answers:</h4>
           <label>
-            Answers:
             <input
             />
           </label>
