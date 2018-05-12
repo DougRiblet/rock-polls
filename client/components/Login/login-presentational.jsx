@@ -44,6 +44,7 @@ export default class Login extends React.Component<Props, State> {
   handleSubmit(event: SyntheticInputEvent<*>) {
     event.preventDefault();
     this.props.logInUser(this.state.username, this.state.password);
+    this.setState({ username: '', password: '' });
   }
 
   render() {

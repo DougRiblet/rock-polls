@@ -44,6 +44,7 @@ export default class Signup extends React.Component<Props, State> {
   handleSubmit(event: SyntheticInputEvent<*>) {
     event.preventDefault();
     this.props.signUpUser(this.state.username, this.state.password);
+    this.setState({ username: '', password: '' });
   }
 
   render() {
