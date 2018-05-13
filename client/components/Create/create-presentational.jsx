@@ -12,6 +12,7 @@ type Props = {
 type State = {
   question: string,
   answers: Array<string>,
+  preview: boolean,
 };
 
 export default class Create extends React.Component<Props, State> {
@@ -20,6 +21,7 @@ export default class Create extends React.Component<Props, State> {
     this.state = {
       question: '',
       answers: [],
+      preview: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeQuestion = this.handleChangeQuestion.bind(this);
@@ -29,13 +31,8 @@ export default class Create extends React.Component<Props, State> {
   handleChangeQuestion: Function;
 
   // eslint-disable-next-line no-undef
-  handleChangeUsername(event: SyntheticInputEvent<*>) {
-    this.setState({ username: event.target.value });
-  }
-
-  // eslint-disable-next-line no-undef
-  handleChangePassword(event: SyntheticInputEvent<*>) {
-    this.setState({ password: event.target.value });
+  handleChangeQuestion(event: SyntheticInputEvent<*>) {
+    this.setState({ question: event.target.value });
   }
 
   // eslint-disable-next-line no-undef
@@ -73,6 +70,8 @@ export default class Create extends React.Component<Props, State> {
             <input
             />
           </label>
+          <br />
+          <br />
           <br />
           <input type='submit' value='submit' />
         </form>
