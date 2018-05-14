@@ -9,6 +9,20 @@ input#username-input, input#password-input {
   box-sizing: border-box;
 }
 
+input.answer-input {
+  padding: 4px 8px;
+  display: block;
+  box-sizing: border-box;
+  margin: 8px 0px;
+}
+
+.create-buttons {
+  margin: 8px 0px;
+  button {
+    margin-right: 25px;
+  }
+}
+
 input[type=submit] {
   width: 80px;
   height: 30px;
