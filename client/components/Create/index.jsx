@@ -4,8 +4,8 @@ import { createNewPoll } from '../../actions/actions';
 import createPresent from './create-presentational';
 
 const mapStateToProps = state => ({
-  user_id: state.user_id,
-  username: state.username,
+  user_id: state.auth.user_id,
+  username: state.auth.username,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ createNewPoll }, dispatch);
