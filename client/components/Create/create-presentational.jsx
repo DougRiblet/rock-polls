@@ -24,7 +24,7 @@ export default class Create extends React.Component<Props, State> {
       answers: [],
       preview: false,
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitPoll = this.handleSubmitPoll.bind(this);
     this.handleChangeQuestion = this.handleChangeQuestion.bind(this);
     this.handleChangeAnswer = this.handleChangeAnswer.bind(this);
     this.togglePreview = this.togglePreview.bind(this);
@@ -38,7 +38,8 @@ export default class Create extends React.Component<Props, State> {
     this.initializeBlankPoll();
   }
 
-  handleSubmit: Function;
+  handleSubmitPoll: Function;
+  handleChangeAnswer: Function;
   handleChangeQuestion: Function;
 
   // eslint-disable-next-line no-undef
@@ -51,14 +52,13 @@ export default class Create extends React.Component<Props, State> {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  // eslint-disable-next-line no-undef
-  handleSubmit(event: SyntheticInputEvent<*>) {
-    event.preventDefault();
+  handleSubmitPoll() {
+    const answersArr = this.state.answers.map(str => this.state[str]);
     const pollObj = {
       user_id: this.props.user_id,
       username: this.props.username,
       question: this.state.question,
-      answers: this.state.answers,
+      answers: answersArr,
     };
     this.props.createNewPoll(pollObj);
   }
@@ -89,7 +89,6 @@ export default class Create extends React.Component<Props, State> {
     return (
       <div>
         <h3>Create New Poll</h3>
-        <form onSubmit={this.handleSubmit}>
           <h4 className='create-label'>Question:</h4>
           <label>
             <textarea
@@ -124,7 +123,6 @@ export default class Create extends React.Component<Props, State> {
             <button onClick={this.addAnswerField}>Add Answer Field</button>
             <button onClick={this.togglePreview}>Preview Poll</button>
           </div>
-        </form>
         <div className='show-status'>
           <p>Username: {this.props.username}</p>
           <p>User ID: {this.props.user_id}</p>
@@ -136,9 +134,26 @@ export default class Create extends React.Component<Props, State> {
   showPreviewMode() {
     return (
       <div>
-        <p>## Preview Mode ##</p>
+        <h3>Preview New Poll</h3>
+        <div id='create-preview'>
+          <h4 id='preview-question'>{this.state.question}</h4>
+          <ul>
+            { 
+              this.state.answers.map(str => {
+                return (
+                  <li key={str}>{this.state[str]}</li>
+                )
+              })
+            }
+          </ul>
+        </div>
         <div className='create-buttons'>
-          <button onClick={this.togglePreview}>Preview Poll</button>
+          <button onClick={this.togglePreview}>Continue Editing</button>
+          <button onClick={this.submitPoll}>Submit Poll</button>
+        </div>
+        <div className='show-status'>
+          <p>Username: {this.props.username}</p>
+          <p>User ID: {this.props.user_id}</p>
         </div>
       </div>
     )

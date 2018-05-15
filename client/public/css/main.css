@@ -12,6 +12,19 @@ input.answer-input {
   box-sizing: border-box;
   margin: 8px 0px; }
 
+#create-preview {
+  width: 500px;
+  padding: 2px 16px 8px 16px;
+  border: 1px solid #ccbb88;
+  border-radius: 8px;
+  background-color: #f4eecc;
+  box-sizing: border-box; }
+  #create-preview ul {
+    list-style-type: circle; }
+    #create-preview ul li {
+      font-size: 120%;
+      margin-bottom: 6px; }
+
 .create-buttons {
   margin: 8px 0px; }
   .create-buttons button {
