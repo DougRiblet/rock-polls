@@ -74,7 +74,7 @@ export default class Create extends React.Component<Props, State> {
       answers: this.state.answers.concat(newId1).concat(newId2),
       [newId1]: '',
       [newId2]: '',
-    })
+    });
   }
 
   addAnswerField() {
@@ -82,47 +82,44 @@ export default class Create extends React.Component<Props, State> {
     this.setState({
       answers: this.state.answers.concat(newId),
       [newId]: '',
-    })
+    });
   }
 
   showEditMode() {
     return (
       <div>
         <h3>Create New Poll</h3>
-          <h4 className='create-label'>Question:</h4>
-          <label>
-            <textarea
-              id='question-input'
+        <h4 className='create-label'>Question:</h4>
+        <label>
+          <textarea
+            id='question-input'
+            ref={(input) => { this.textInput = input; }}
+            value={this.state.question}
+            maxLength='390'
+            rows='5'
+            cols='90'
+            onChange={this.handleChangeQuestion}
+          />
+        </label>
+        <br />
+        <h4 className='create-label'>Answers:</h4>
+        { this.state.answers.map(answerId => (
+          <label key={answerId}>
+            <input
+              className='answer-input'
               ref={(input) => { this.textInput = input; }}
-              value={this.state.question}
-              maxLength='390'
-              rows='5'
-              cols='90'
-              onChange={this.handleChangeQuestion}
+              value={this.state[answerId]}
+              name={answerId}
+              maxLength='99'
+              size='80'
+              onChange={this.handleChangeAnswer}
             />
           </label>
-          <br />
-          <h4 className='create-label'>Answers:</h4>
-            { this.state.answers.map(answerId => {
-              return (
-                <label key={answerId}>
-                  <input
-                    className='answer-input'
-                    ref={(input) => { this.textInput = input; }}
-                    value={this.state[answerId]}
-                    name={answerId}
-                    maxLength='99'
-                    size='80'
-                    onChange={this.handleChangeAnswer}
-                  />
-                </label>
-              )
-            })
-            }
-          <div className='create-buttons'>
-            <button onClick={this.addAnswerField}>Add Answer Field</button>
-            <button onClick={this.togglePreview}>Preview Poll</button>
-          </div>
+        ))}
+        <div className='create-buttons'>
+          <button onClick={this.addAnswerField}>Add Answer Field</button>
+          <button onClick={this.togglePreview}>Preview Poll</button>
+        </div>
         <div className='show-status'>
           <p>Username: {this.props.username}</p>
           <p>User ID: {this.props.user_id}</p>
@@ -138,13 +135,9 @@ export default class Create extends React.Component<Props, State> {
         <div id='create-preview'>
           <h4 id='preview-question'>{this.state.question}</h4>
           <ul>
-            { 
-              this.state.answers.map(str => {
-                return (
-                  <li key={str}>{this.state[str]}</li>
-                )
-              })
-            }
+            { this.state.answers.map(str => (
+              <li key={str}>{this.state[str]}</li>
+            ))}
           </ul>
         </div>
         <div className='create-buttons'>
@@ -156,7 +149,7 @@ export default class Create extends React.Component<Props, State> {
           <p>User ID: {this.props.user_id}</p>
         </div>
       </div>
-    )
+    );
   }
 
   render() {
@@ -165,6 +158,6 @@ export default class Create extends React.Component<Props, State> {
       <div id='create'>
         { previewStatus ? this.showPreviewMode() : this.showEditMode() }
       </div>
-    )
+    );
   }
 }

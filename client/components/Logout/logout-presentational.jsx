@@ -18,7 +18,7 @@ export default class Logout extends React.Component<Props> {
   handleLogOut: Function;
 
   // eslint-disable-next-line no-undef
-  handleLogout(event: SyntheticInputEvent<*>) {
+  handleLogout() {
     this.props.logOutUser();
   }
 

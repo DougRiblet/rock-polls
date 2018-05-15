@@ -23,10 +23,10 @@ export const logOutUser = () => {
   return { type: types.LOGOUT_USER };
 };
 
-const createSuccess = (poll) => ({
+const createSuccess = poll => ({
   type: types.CREATE_SUCCESS,
 
-})
+});
 
 /* eslint-disable func-names, no-console */
 
@@ -58,17 +58,17 @@ export const logInUser = (username, password) => function (dispatch: Dispatch<*>
     });
 };
 
-export const createNewPoll = (poll) => function (dispatch: Dispatch<*>) {
+export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
   const token = sessionStorage.getItem('token');
   const axiosConfig = {
-    method: 'POST', 
+    method: 'POST',
     url: `${baseUrl}createpoll`,
     data: poll,
-    headers: { 'Authorization': `Bearer ${token}` },
-  }
+    headers: { Authorization: `Bearer ${token}` },
+  };
   axios(axiosConfig)
     .then((response) => {
-      console.log('### Create Poll Response: ', response)
+      console.log('### Create Poll Response: ', response);
       // dispatch(createSuccess(response.data));
     })
     .catch((error) => {
