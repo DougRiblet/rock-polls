@@ -149,7 +149,7 @@ export default class Create extends React.Component<Props, State> {
         </div>
         <div className='create-buttons'>
           <button onClick={this.togglePreview}>Continue Editing</button>
-          <button onClick={this.submitPoll}>Submit Poll</button>
+          <button onClick={this.handleSubmitPoll}>Submit Poll</button>
         </div>
         <div className='show-status'>
           <p>Username: {this.props.username}</p>

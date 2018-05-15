@@ -1,8 +1,4 @@
 const mongoose = require('mongoose');
-// eslint-disable-next-line no-unused-vars
-const User = require('./user.js');
-// eslint-disable-next-line no-unused-vars
-const Answer = require('./answer.js');
 
 const pollSchema = mongoose.Schema({
   question: {

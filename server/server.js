@@ -5,8 +5,11 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+
+const loginCheck = require('./middleware/login-check');
 const signin = require('./auth/signin');
 const signup = require('./auth/signup');
+const createPoll = require('./auth/create-poll');
 
 const app = express();
 const port = process.env.PORT || 8357;
@@ -35,9 +38,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use(express.static(path.join(__dirname, '../client/public')));
 
-app.use('/auth/signin', signin);
+app.post('/auth/signin', signin);
 
-app.use('/auth/signup', signup);
+app.post('/auth/signup', signup);
+
+app.post('/createpoll', loginCheck, createPoll);
 
 app.use((req, res) => {
   res.status(404).send('Error 404');
