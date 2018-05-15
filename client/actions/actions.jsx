@@ -68,7 +68,6 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
   };
   axios(axiosConfig)
     .then((response) => {
-      console.log('### Create Poll Response: ', response);
       // dispatch(createSuccess(response.data));
     })
     .catch((error) => {

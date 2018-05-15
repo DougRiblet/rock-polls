@@ -1,31 +1,9 @@
 // @flow
 
+import { combineReducers } from 'redux';
 import * as types from '../actions/action-types';
+import authReducer from './auth-reducer';
 
-// eslint-disable-next-line no-undef
-const reducer = (state: Object, action: Object): Object => {
-  switch (action.type) {
-    case types.SIGNUP_SUCCESS:
-      return Object.assign({}, state, {
-        authenticated: true,
-        user_id: action.id,
-        username: action.username,
-      });
-    case types.LOGIN_SUCCESS:
-      return Object.assign({}, state, {
-        authenticated: true,
-        user_id: action.id,
-        username: action.username,
-      });
-    case types.LOGOUT_USER:
-      return Object.assign({}, state, {
-        authenticated: false,
-        user_id: '',
-        username: '',
-      });
-    default:
-      return state;
-  }
-};
-
-export default reducer;
+export default combineReducers({
+  auth: authReducer,
+});

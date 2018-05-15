@@ -1,7 +1,11 @@
 const initialState = {
-  authenticated: false,
-  user_id: '',
-  username: '',
+  auth: {
+    authenticated: false,
+    user_id: '',
+    username: '',
+  },
+  myPolls: {},
+  allPolls: {},
 };
 
 export default initialState;
