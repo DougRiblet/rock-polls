@@ -11,6 +11,10 @@ const pollSchema = mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
   answers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Answer',
