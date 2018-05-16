@@ -70,7 +70,7 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
   const token = sessionStorage.getItem('token');
   const axiosConfig = {
     method: 'POST',
-    url: `${baseUrl}createpoll`,
+    url: `${baseUrl}poll/create`,
     data: poll,
     headers: { Authorization: `Bearer ${token}` },
   };
@@ -78,8 +78,8 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
     .then((response) => {
       const p = response.data.poll;
       const answerIdArr = p.answers.map(x => x._id);
-      dispatch(createQuestion(p._id, p.question, answerIdArr));
       p.answers.forEach(y => dispatch(createAnswer(y._id, y.text)));
+      dispatch(createQuestion(p._id, p.question, answerIdArr));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);

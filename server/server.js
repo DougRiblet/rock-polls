@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const loginCheck = require('./middleware/login-check');
 const signin = require('./auth/signin');
 const signup = require('./auth/signup');
-const createPoll = require('./auth/create-poll');
+const createPoll = require('./crud/create-poll');
 
 const app = express();
 const port = process.env.PORT || 8357;
@@ -42,7 +42,7 @@ app.post('/auth/signin', signin);
 
 app.post('/auth/signup', signup);
 
-app.post('/createpoll', loginCheck, createPoll);
+app.post('/poll/create', loginCheck, createPoll);
 
 app.use((req, res) => {
   res.status(404).send('Error 404');
