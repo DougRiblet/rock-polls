@@ -10,7 +10,7 @@ const loginCheck = require('./middleware/login-check');
 const signin = require('./auth/signin');
 const signup = require('./auth/signup');
 const createPoll = require('./crud/create-poll');
-const grabAllPolls = require('./crud/grab-all-polls';)
+const grabAllPolls = require('./crud/grab-all-polls');
 
 const app = express();
 const port = process.env.PORT || 8357;
