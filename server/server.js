@@ -10,6 +10,7 @@ const loginCheck = require('./middleware/login-check');
 const signin = require('./auth/signin');
 const signup = require('./auth/signup');
 const createPoll = require('./crud/create-poll');
+const grabAllPolls = require('./crud/grab-all-polls';)
 
 const app = express();
 const port = process.env.PORT || 8357;
@@ -41,6 +42,8 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 app.post('/auth/signin', signin);
 
 app.post('/auth/signup', signup);
+
+app.get('/poll/graball', grabAllPolls);
 
 app.post('/poll/create', loginCheck, createPoll);
 

@@ -86,4 +86,9 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
     });
 };
 
+export const grabAllPolls = () => function(dispatch: Dispatch<*>) {
+  axios.get(`${baseUrl}poll/graball`)
+
+};
+
 /* eslint-enable func-names, no-console */
