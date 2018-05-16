@@ -23,9 +23,17 @@ export const logOutUser = () => {
   return { type: types.LOGOUT_USER };
 };
 
-const createSuccess = poll => ({
-  type: types.CREATE_SUCCESS,
+const createQuestion = (id, question, answers) => ({
+  type: types.CREATE_QUESTION,
+  id,
+  question,
+  answers
+});
 
+const createAnswer = (id, answer) => ({
+  type: types.CREATE_ANSWER,
+  id,
+  answer,
 });
 
 /* eslint-disable func-names, no-console */
@@ -68,7 +76,10 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
   };
   axios(axiosConfig)
     .then((response) => {
-      // dispatch(createSuccess(response.data));
+      const p = response.data.poll;
+      const answerIdArr = p.answers.map(x => x._id);
+      dispatch(createQuestion(p._id, p.question, answerIdArr));
+      p.answers.forEach(y => dispatch(createAnswer(y._id, y.text)));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
