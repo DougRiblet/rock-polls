@@ -10,7 +10,6 @@ const allpollsReducer = (state: Object = {}, action: Object): Object => {
           question: action.question,
         },
       });
-    
     default:
       return state;
   }

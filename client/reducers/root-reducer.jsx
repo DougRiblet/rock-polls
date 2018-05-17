@@ -1,7 +1,6 @@
 // @flow
 
 import { combineReducers } from 'redux';
-import * as types from '../actions/action-types';
 import authReducer from './auth-reducer';
 import mypollsReducer from './mypolls-reducer';
 import allpollsReducer from './allpolls-reducer';

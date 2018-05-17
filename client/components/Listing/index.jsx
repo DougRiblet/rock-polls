@@ -10,4 +10,3 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({ grabAllPolls }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(listingPresent);
-

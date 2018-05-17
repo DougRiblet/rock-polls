@@ -27,7 +27,7 @@ const createQuestion = (id, question, answers) => ({
   type: types.CREATE_QUESTION,
   id,
   question,
-  answers
+  answers,
 });
 
 const createAnswer = (id, answer) => ({
@@ -43,7 +43,7 @@ const grabPoll = (id, question, date) => ({
   date,
 });
 
-/* eslint-disable func-names, no-console */
+/* eslint-disable func-names, no-console, no-underscore-dangle */
 
 export const signUpUser = (username, password) => function (dispatch: Dispatch<*>) {
   axios.post(`${baseUrl}auth/signup`, {
@@ -93,7 +93,7 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
     });
 };
 
-export const grabAllPolls = () => function(dispatch: Dispatch<*>) {
+export const grabAllPolls = () => function (dispatch: Dispatch<*>) {
   axios.get(`${baseUrl}poll/graball`)
     .then((response) => {
       const rdap = response.data.allPolls;
@@ -102,7 +102,6 @@ export const grabAllPolls = () => function(dispatch: Dispatch<*>) {
     .catch((error) => {
       console.log('### ERROR: ', error);
     });
-
 };
 
-/* eslint-enable func-names, no-console */
+/* eslint-enable func-names, no-console, no-underscore-dangle */

@@ -14,23 +14,23 @@ export default class Listing extends React.Component<Props> {
     this.showListing = this.showListing.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.grabAllPolls();
   }
 
-  showLoading(){
-    return <p className='loading'>L O A D I N G</p>
+  showLoading() {
+    return <p className='loading'>L O A D I N G</p>;
   }
 
-  showListing(allPolls){
-    let polls = [];
+  showListing(allPolls) {
+    const polls = [];
     for (let key in allPolls) {
       let obj = allPolls[key];
       obj.id = key;
       polls.push(obj);
     }
     return polls
-      .sort((a, b)=> new Date(b.date) - new Date(a.date))
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
       .map(p => <li key={p.id}>{p.question}</li>);
   }
 
@@ -40,7 +40,7 @@ export default class Listing extends React.Component<Props> {
         <div id='show-all-polls'>
           { this.showLoading() }
         </div>
-      )
+      );
     }
 
     return (
