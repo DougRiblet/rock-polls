@@ -4,7 +4,7 @@ const Answer = require('../models/answer');
 
 const createPoll = async function createPoll(req, res) {
   try {
-    const newPoll = await Poll.create({
+    let newPoll = await Poll.create({
       question: req.body.question,
       creator: req.body.user_id,
     });
@@ -19,8 +19,8 @@ const createPoll = async function createPoll(req, res) {
       newPoll.answers.push(newAnswer);
     }
 
+    console.log('### New Poll: ', newPoll);
     return res.status(200).json({ poll: newPoll });
-
   } catch (error) {
     return res.status(400).send(error);
   }

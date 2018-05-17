@@ -36,6 +36,13 @@ const createAnswer = (id, answer) => ({
   answer,
 });
 
+const grabPoll = (id, question, date) => ({
+  type: types.GRAB_POLL,
+  id,
+  question,
+  date,
+});
+
 /* eslint-disable func-names, no-console */
 
 export const signUpUser = (username, password) => function (dispatch: Dispatch<*>) {
@@ -88,6 +95,13 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
 
 export const grabAllPolls = () => function(dispatch: Dispatch<*>) {
   axios.get(`${baseUrl}poll/graball`)
+    .then((response) => {
+      const rdap = response.data.allPolls;
+      rdap.forEach(p => dispatch(grabPoll(p._id, p.question, p.date)));
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    });
 
 };
 
