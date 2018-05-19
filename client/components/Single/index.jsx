@@ -13,9 +13,9 @@
 
 import React from 'react';
 
-const Single = () => (
+const Single = ({ match }) => (
   <div>
-    ## SINGLE POLL PAGE ##
+    <h2>## SINGLE POLL: { match.params.pollid }</h2>
   </div>
 );
 

@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 type Props = {
   grabAllPolls: () => mixed,
@@ -28,7 +29,7 @@ export default class Listing extends React.Component<Props> {
       .sort((a, b) => new Date(b[1].date) - new Date(a[1].date))
       .map(p => (
         <li key={p[0]}>
-          {p[1].question}
+          <Link to={`/polls/${p[0]}`}>{p[1].question}</Link>
           <span className='polldate'> {p[1].date.slice(0,10)}</span>
         </li>
       ));
