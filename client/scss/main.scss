@@ -77,3 +77,18 @@ input[type=submit] {
     }
   }
 }
+
+#show-all-polls {
+  ul {
+    list-style-type: circle;
+    li {
+      font-size: 24px;
+      .polldate {
+        font-size: 12px;
+        font-style: italic;
+        color: gray;
+      }
+    }
+  }
+}
+

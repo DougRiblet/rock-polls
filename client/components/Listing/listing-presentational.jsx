@@ -23,15 +23,15 @@ export default class Listing extends React.Component<Props> {
   }
 
   showListing(allPolls) {
-    const polls = [];
-    for (let key in allPolls) {
-      let obj = allPolls[key];
-      obj.id = key;
-      polls.push(obj);
-    }
-    return polls
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .map(p => <li key={p.id}>{p.question}</li>);
+    const ap = Object.entries(allPolls);
+    return ap
+      .sort((a, b) => new Date(b[1].date) - new Date(a[1].date))
+      .map(p => (
+        <li key={p[0]}>
+          {p[1].question}
+          <span className='polldate'> {p[1].date.slice(0,10)}</span>
+        </li>
+      ));
   }
 
   render() {

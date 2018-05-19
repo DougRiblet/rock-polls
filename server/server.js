@@ -47,6 +47,14 @@ app.get('/poll/graball', grabAllPolls);
 
 app.post('/poll/create', loginCheck, createPoll);
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+});
+
 app.use((req, res) => {
   res.status(404).send('Error 404');
 });

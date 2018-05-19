@@ -63,3 +63,12 @@ input[type=submit] {
     box-shadow: 4px 4px 2px #444; }
     #logout div button:hover {
       background-color: orange; }
+
+#show-all-polls ul {
+  list-style-type: circle; }
+  #show-all-polls ul li {
+    font-size: 24px; }
+    #show-all-polls ul li .polldate {
+      font-size: 12px;
+      font-style: italic;
+      color: gray; }

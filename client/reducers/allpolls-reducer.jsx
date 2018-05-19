@@ -8,6 +8,7 @@ const allpollsReducer = (state: Object = {}, action: Object): Object => {
       return Object.assign({}, state, {
         [action.id]: {
           question: action.question,
+          date: action.date,
         },
       });
     default:
