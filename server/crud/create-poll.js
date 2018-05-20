@@ -8,18 +8,22 @@ const createPoll = async function createPoll(req, res) {
       question: req.body.question,
       creator: req.body.user_id,
     });
-
-    newPoll.answers = [];
+    let npas = [];
     for (let answer of req.body.answers) {
-      let newAnswer = await Answer.create({
+      const newAnswer = await Answer.create({
         text: answer,
         count: 0,
         poll: newPoll._id,
+      }).then(npa => {
+        Poll.findOneAndUpdate(
+          { _id: newPoll._id },
+          { $push: { answers: npa._id}},
+        );
+        return npa;
       });
-      newPoll.answers.push(newAnswer);
+      npas.push(newAnswer);
     }
-
-    console.log('### New Poll: ', newPoll);
+    newPoll.answers = npas;
     return res.status(200).json({ poll: newPoll });
   } catch (error) {
     return res.status(400).send(error);

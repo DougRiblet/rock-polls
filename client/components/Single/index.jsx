@@ -1,17 +1,18 @@
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-// import { grabAllPolls } from '../../actions/actions';
+// import { grabSinglePoll, castVote } from '../../actions/actions';
 // import singlePresent from './single-presentational';
 
 // const mapStateToProps = state => ({
 //   allPolls: state.allpolls,
+//   allAnswers: state.answers,
+//   authenticated: state.auth.authenticated,
+//   user_id: state.auth.user_id,
 // });
 
 // const mapDispatchToProps = dispatch => bindActionCreators({ grabAllPolls }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(singlePresent);
-
-import React from 'react';
 
 const Single = ({ match }) => (
   <div>
