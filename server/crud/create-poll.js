@@ -14,13 +14,11 @@ const createPoll = async function createPoll(req, res) {
         text: answer,
         count: 0,
         poll: newPoll._id,
-      }).then(npa => {
-        Poll.findOneAndUpdate(
-          { _id: newPoll._id },
-          { $push: { answers: npa._id}},
-        );
-        return npa;
-      });
+      })
+      await Poll.findOneAndUpdate(
+        { _id: newPoll._id },
+        { $push: { answers: newAnswer._id}},
+      );
       npas.push(newAnswer);
     }
     newPoll.answers = npas;

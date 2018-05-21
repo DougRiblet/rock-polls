@@ -8,7 +8,7 @@ const answersReducer = (state: Object = {}, action: Object): Object => {
       return Object.assign({}, state, {
         [action.id]: {
           answer: action.answer,
-          count: 0,
+          count: action.count,
         },
       });
     default:

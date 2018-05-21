@@ -1,5 +1,5 @@
 
-#login, #signup, #create, #show-all-polls {
+#login, #signup, #create, #show-all-polls, #single {
   margin-left: 150px;
 }
 
@@ -88,6 +88,15 @@ input[type=submit] {
         font-style: italic;
         color: gray;
       }
+    }
+  }
+}
+
+#single {
+  ul {
+    list-style-type: circle;
+    li {
+      font-size: 24px;
     }
   }
 }

@@ -30,10 +30,11 @@ const createQuestion = (id, question, answers) => ({
   answers,
 });
 
-const createAnswer = (id, answer) => ({
+const createAnswer = (id, answer, count) => ({
   type: types.CREATE_ANSWER,
   id,
   answer,
+  count,
 });
 
 const grabPoll = (id, question, date) => ({
@@ -41,6 +42,14 @@ const grabPoll = (id, question, date) => ({
   id,
   question,
   date,
+});
+
+const grabSingle = (id, question, date, answers) => ({
+  type: types.GRAB_SINGLE,
+  id,
+  question,
+  date,
+  answers,
 });
 
 /* eslint-disable func-names, no-console, no-underscore-dangle */
@@ -85,7 +94,7 @@ export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
     .then((response) => {
       const p = response.data.poll;
       const answerIdArr = p.answers.map(x => x._id);
-      p.answers.forEach(y => dispatch(createAnswer(y._id, y.text)));
+      p.answers.forEach(y => dispatch(createAnswer(y._id, y.text, 0)));
       dispatch(createQuestion(p._id, p.question, answerIdArr));
     })
     .catch((error) => {
@@ -103,5 +112,19 @@ export const grabAllPolls = () => function (dispatch: Dispatch<*>) {
       console.log('### ERROR: ', error);
     });
 };
+
+export const grabSinglePoll = (pollid) => function(dispatch: Dispatch<*>) {
+  axios.get(`${baseUrl}poll/grabsingle`, { params: { id: pollid } })
+    .then((response) => {
+      console.log('## RDA: ', response.data);
+      const spa = response.data.opAnswers;
+      spa.forEach(a => dispatch(createAnswer(a._id, a.text, a.count)));
+      const op = response.data.onePoll;
+      dispatch(grabSingle(op._id, op.question, op.date, op.answers));
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    })
+}
 
 /* eslint-enable func-names, no-console, no-underscore-dangle */

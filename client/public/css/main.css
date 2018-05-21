@@ -1,4 +1,4 @@
-#login, #signup, #create, #show-all-polls {
+#login, #signup, #create, #show-all-polls, #single {
   margin-left: 150px; }
 
 input#username-input, input#password-input {
@@ -72,3 +72,8 @@ input[type=submit] {
       font-size: 12px;
       font-style: italic;
       color: gray; }
+
+#single ul {
+  list-style-type: circle; }
+  #single ul li {
+    font-size: 24px; }
