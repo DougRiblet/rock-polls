@@ -132,7 +132,7 @@ export const grabSinglePoll = (pollid) => function(dispatch: Dispatch<*>) {
 }
 
 export const castVote = (answerid) => function(dispatch: Dispatch<*>) {
-  axios.put(`${baseUrl}poll/vote`, { params: { id: answerid } })
+  axios.put(`${baseUrl}poll/vote`, { id: answerid })
     .then((response) => {
       dispatch(addVote(answerid));
     })

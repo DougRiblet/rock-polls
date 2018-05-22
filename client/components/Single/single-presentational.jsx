@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import AnswerItemVote from './answer-item-vote';
 
 type Props = {
   castVote: (answerId) => mixed,
@@ -37,15 +38,21 @@ export default class Single extends React.Component<Props, State> {
   displayAnswers(pollid) {
     const answers = this.props.allPolls[pollid].answers;
     if (answers) {
-      return answers.map(answerId => {
-        const a = this.props.allAnswers[answerId];
-        return <li
-          key={answerId}
-          name={answerId}
-          onClick={() => this.handleVote(answerId)}
-        >
-          { a.answer } - { a.count }
-        </li>;
+      return answers.map(aId => {
+        const aInfo = this.props.allAnswers[aId];
+        return <AnswerItemVote
+            key={aId}
+            aId={aId}
+            aInfo={aInfo}
+            handleVote={this.handleVote}
+          />
+        // return <li
+        //   key={answerId}
+        //   name={answerId}
+        //   onClick={() => this.handleVote(answerId)}
+        // >
+        //   { a.answer } - { a.count }
+        // </li>;
       });
     }
     return <li></li>

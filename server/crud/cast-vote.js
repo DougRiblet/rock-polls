@@ -2,7 +2,7 @@ const Answer = require('../models/answer');
 
 const castVote = async function castVote(req, res) {
   try {
-    await Answer.findOneAndUpdate({ _id: req.params.id }, {
+    await Answer.findOneAndUpdate({ _id: req.body.id }, {
       $inc: { count: 1 },
     });
     return res.status(200).end();
