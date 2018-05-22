@@ -13,6 +13,7 @@ const createPoll = require('./crud/create-poll');
 const grabAllPolls = require('./crud/grab-all-polls');
 const grabSinglePoll = require('./crud/grab-single-poll');
 const castVote = require('./crud/cast-vote');
+const addAltAnswer = require('./crud/add-alt-answer';)
 
 const app = express();
 const port = process.env.PORT || 8357;
@@ -50,6 +51,8 @@ app.get('/poll/graball', grabAllPolls);
 app.get('/poll/grabsingle', grabSinglePoll);
 
 app.post('/poll/create', loginCheck, createPoll);
+
+app.post('/poll/alt', loginCheck, addAltAnswer);
 
 app.put('/poll/vote', castVote);
 

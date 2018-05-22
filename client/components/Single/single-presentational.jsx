@@ -32,7 +32,10 @@ export default class Single extends React.Component<Props, State> {
   }
 
   displayQuestion(pollid) {
-    return this.props.allPolls[pollid].question;
+    if (this.props.allPolls[pollid].question) {
+      return this.props.allPolls[pollid].question;
+    }
+    return '';
   }
 
   displayAnswers(pollid) {

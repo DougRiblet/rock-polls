@@ -40,7 +40,13 @@ const createAnswer = (id, answer, count) => ({
 const addVote = (id) => ({
   type: types.ADD_VOTE,
   id,
-})
+});
+
+const addAnswer = (answerId, pollId) => ({
+  type: types.ADD_ANSWER,
+  answerId,
+  pollId,
+});
 
 const grabPoll = (id, question, date) => ({
   type: types.GRAB_POLL,
@@ -135,6 +141,18 @@ export const castVote = (answerid) => function(dispatch: Dispatch<*>) {
   axios.put(`${baseUrl}poll/vote`, { id: answerid })
     .then((response) => {
       dispatch(addVote(answerid));
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    })
+}
+
+export const addAltAnswer = (pollId, newAnswer) => function(dispatch: Dispatch<*>) {
+  axios.post(`${baseUrl}poll/alt`, { pollId, newAnswer })
+    .then((response) => {
+      const a = response.data;
+      dispatch(createAnswer(a._id, a.answer, 1))
+      dispatch(addAnswer(a._id, pollId));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
