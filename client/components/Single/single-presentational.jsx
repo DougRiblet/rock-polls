@@ -3,7 +3,7 @@
 import React from 'react';
 
 type Props = {
-  // castVote: (answerId) => mixed,
+  castVote: (answerId) => mixed,
   grabSinglePoll: (pollId) => mixed,
   authenticated: boolean,
   user_id: string,
@@ -23,7 +23,7 @@ export default class Single extends React.Component<Props, State> {
     };
   this.displayQuestion = this.displayQuestion.bind(this);
   this.displayAnswers = this.displayAnswers.bind(this);
-  // this.handleVote = this.handleVote.bind(this);
+  this.handleVote = this.handleVote.bind(this);
   }
 
   componentDidMount() {
@@ -39,15 +39,23 @@ export default class Single extends React.Component<Props, State> {
     if (answers) {
       return answers.map(answerId => {
         const a = this.props.allAnswers[answerId];
-        return <li key={answerId} name={answerId}>{ a.answer }</li>;
+        return <li
+          key={answerId}
+          name={answerId}
+          onClick={() => this.handleVote(answerId)}
+        >
+          { a.answer } - { a.count }
+        </li>;
       });
     }
     return <li></li>
   }
 
-  // handleVote() {
-
-  // }
+  // eslint-disable-next-line no-undef
+  handleVote(answerid) {
+    this.props.castVote(answerid);
+    this.setState({ hasVoted: true });
+  }
 
   render() {
     const pollid = this.props.match.params.pollid;

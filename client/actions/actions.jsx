@@ -37,6 +37,11 @@ const createAnswer = (id, answer, count) => ({
   count,
 });
 
+const addVote = (id) => ({
+  type: types.ADD_VOTE,
+  id,
+})
+
 const grabPoll = (id, question, date) => ({
   type: types.GRAB_POLL,
   id,
@@ -116,11 +121,20 @@ export const grabAllPolls = () => function (dispatch: Dispatch<*>) {
 export const grabSinglePoll = (pollid) => function(dispatch: Dispatch<*>) {
   axios.get(`${baseUrl}poll/grabsingle`, { params: { id: pollid } })
     .then((response) => {
-      console.log('## RDA: ', response.data);
       const spa = response.data.opAnswers;
       spa.forEach(a => dispatch(createAnswer(a._id, a.text, a.count)));
       const op = response.data.onePoll;
       dispatch(grabSingle(op._id, op.question, op.date, op.answers));
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    })
+}
+
+export const castVote = (answerid) => function(dispatch: Dispatch<*>) {
+  axios.put(`${baseUrl}poll/vote`, { params: { id: answerid } })
+    .then((response) => {
+      dispatch(addVote(answerid));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);

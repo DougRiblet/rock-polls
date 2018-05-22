@@ -12,6 +12,7 @@ const signup = require('./auth/signup');
 const createPoll = require('./crud/create-poll');
 const grabAllPolls = require('./crud/grab-all-polls');
 const grabSinglePoll = require('./crud/grab-single-poll');
+const castVote = require('./crud/cast-vote');
 
 const app = express();
 const port = process.env.PORT || 8357;
@@ -49,6 +50,8 @@ app.get('/poll/graball', grabAllPolls);
 app.get('/poll/grabsingle', grabSinglePoll);
 
 app.post('/poll/create', loginCheck, createPoll);
+
+app.put('/poll/vote', castVote);
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {

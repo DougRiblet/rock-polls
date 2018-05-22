@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { grabSinglePoll } from '../../actions/actions';
+import { grabSinglePoll, castVote } from '../../actions/actions';
 import singlePresent from './single-presentational';
 
 const mapStateToProps = state => ({
@@ -10,6 +10,6 @@ const mapStateToProps = state => ({
   user_id: state.auth.user_id,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ grabSinglePoll }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ grabSinglePoll, castVote }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(singlePresent);
