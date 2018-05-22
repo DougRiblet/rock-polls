@@ -151,7 +151,7 @@ export const addAltAnswer = (pollId, newAnswer) => function(dispatch: Dispatch<*
   axios.post(`${baseUrl}poll/alt`, { pollId, newAnswer })
     .then((response) => {
       const a = response.data;
-      dispatch(createAnswer(a._id, a.answer, 1))
+      dispatch(createAnswer(a._id, a.text, 1))
       dispatch(addAnswer(a._id, pollId));
     })
     .catch((error) => {

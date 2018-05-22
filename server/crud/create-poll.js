@@ -1,4 +1,3 @@
-require('dotenv').load();
 const Poll = require('../models/poll');
 const Answer = require('../models/answer');
 
