@@ -4,15 +4,15 @@ import axios from 'axios';
 import type { Dispatch } from 'redux';
 import * as types from './action-types';
 
-const baseUrl = 'http://localhost:8357/';
+const baseUrl: string = 'http://localhost:8357/';
 
-const logInSuccess = (id, username) => ({
+const logInSuccess = (id: string, username: string) => ({
   type: types.LOGIN_SUCCESS,
   id,
   username,
 });
 
-const signUpSuccess = (id, username) => ({
+const signUpSuccess = (id: string, username: string) => ({
   type: types.SIGNUP_SUCCESS,
   id,
   username,
@@ -23,39 +23,39 @@ export const logOutUser = () => {
   return { type: types.LOGOUT_USER };
 };
 
-const createQuestion = (id, question, answers) => ({
+const createQuestion = (id: string, question: string, answers: Array<string>) => ({
   type: types.CREATE_QUESTION,
   id,
   question,
   answers,
 });
 
-const createAnswer = (id, answer, count) => ({
+const createAnswer = (id: string, answer: string, count: number) => ({
   type: types.CREATE_ANSWER,
   id,
   answer,
   count,
 });
 
-const addVote = (id) => ({
+const addVote = (id: string) => ({
   type: types.ADD_VOTE,
   id,
 });
 
-const addAnswer = (answerId, pollId) => ({
+const addAnswer = (answerId: string, pollId: string) => ({
   type: types.ADD_ANSWER,
   answerId,
   pollId,
 });
 
-const grabPoll = (id, question, date) => ({
+const grabPoll = (id: string, question: string, date: string) => ({
   type: types.GRAB_POLL,
   id,
   question,
   date,
 });
 
-const grabSingle = (id, question, date, answers) => ({
+const grabSingle = (id: string, question: string, date: string, answers: Array<string>) => ({
   type: types.GRAB_SINGLE,
   id,
   question,
@@ -65,7 +65,7 @@ const grabSingle = (id, question, date, answers) => ({
 
 /* eslint-disable func-names, no-console, no-underscore-dangle */
 
-export const signUpUser = (username, password) => function (dispatch: Dispatch<*>) {
+export const signUpUser = (username: string, password: string) => function (dispatch: Dispatch<*>) {
   axios.post(`${baseUrl}auth/signup`, {
     username,
     password,
@@ -79,7 +79,7 @@ export const signUpUser = (username, password) => function (dispatch: Dispatch<*
     });
 };
 
-export const logInUser = (username, password) => function (dispatch: Dispatch<*>) {
+export const logInUser = (username: string, password: string) => function (dispatch: Dispatch<*>) {
   axios.post(`${baseUrl}auth/signin`, {
     username,
     password,
@@ -93,8 +93,9 @@ export const logInUser = (username, password) => function (dispatch: Dispatch<*>
     });
 };
 
-export const createNewPoll = poll => function (dispatch: Dispatch<*>) {
-  const token = sessionStorage.getItem('token');
+// eslint-disable-next-line no-undef
+export const createNewPoll = (poll: newPoll) => function (dispatch: Dispatch<*>) {
+  const token = String(sessionStorage.getItem('token'));
   const axiosConfig = {
     method: 'POST',
     url: `${baseUrl}poll/create`,
@@ -124,7 +125,7 @@ export const grabAllPolls = () => function (dispatch: Dispatch<*>) {
     });
 };
 
-export const grabSinglePoll = (pollid) => function(dispatch: Dispatch<*>) {
+export const grabSinglePoll = (pollid: string) => function (dispatch: Dispatch<*>) {
   axios.get(`${baseUrl}poll/grabsingle`, { params: { id: pollid } })
     .then((response) => {
       const spa = response.data.opAnswers;
@@ -134,36 +135,40 @@ export const grabSinglePoll = (pollid) => function(dispatch: Dispatch<*>) {
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
-    })
-}
+    });
+};
 
-export const castVote = (answerid) => function(dispatch: Dispatch<*>) {
+export const castVote = (answerid: string) => function (dispatch: Dispatch<*>) {
   axios.put(`${baseUrl}poll/vote`, { id: answerid })
-    .then((response) => {
+    .then(() => {
       dispatch(addVote(answerid));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
-    })
-}
+    });
+};
 
-export const addAltAnswer = (pollId, answerText, user_id) => function(dispatch: Dispatch<*>) {
-  const token = sessionStorage.getItem('token');
+export const addAltAnswer = (
+  pollId: string,
+  answerText: string,
+  userId: string,
+) => function (dispatch: Dispatch<*>) {
+  const token = String(sessionStorage.getItem('token'));
   const axiosConfig = {
     method: 'POST',
     url: `${baseUrl}poll/alt`,
-    data: { pollId, answerText, user_id },
+    data: { pollId, answerText, user_id: userId },
     headers: { Authorization: `Bearer ${token}` },
   };
   axios(axiosConfig)
     .then((response) => {
       const a = response.data;
-      dispatch(createAnswer(a._id, a.text, 1))
+      dispatch(createAnswer(a._id, a.text, 1));
       dispatch(addAnswer(a._id, pollId));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
-    })
-}
+    });
+};
 
 /* eslint-enable func-names, no-console, no-underscore-dangle */

@@ -13,7 +13,7 @@ const createPoll = require('./crud/create-poll');
 const grabAllPolls = require('./crud/grab-all-polls');
 const grabSinglePoll = require('./crud/grab-single-poll');
 const castVote = require('./crud/cast-vote');
-const addAltAnswer = require('./crud/add-alt-answer';)
+const addAltAnswer = require('./crud/add-answer');
 
 const app = express();
 const port = process.env.PORT || 8357;

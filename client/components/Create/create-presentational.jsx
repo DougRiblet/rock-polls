@@ -56,7 +56,6 @@ export default class Create extends React.Component<Props, State> {
     const answersArr = this.state.answers.map(str => this.state[str]);
     const pollObj = {
       user_id: this.props.user_id,
-      username: this.props.username,
       question: this.state.question,
       answers: answersArr,
     };
