@@ -14,6 +14,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   grabSinglePoll,
   castVote,
   addAltAnswer,
-  }, dispatch);
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(singlePresent);

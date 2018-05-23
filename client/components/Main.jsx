@@ -15,8 +15,8 @@ import ReqAuth from './Auth/require-authentication';
 
 const Polls = () => (
   <Switch>
-    <Route exact path='/polls' component={Listing}/>
-    <Route path='/polls/:pollid' component={Single}/>
+    <Route exact path='/polls' component={Listing} />
+    <Route path='/polls/:pollid' component={Single} />
   </Switch>
 );
 
