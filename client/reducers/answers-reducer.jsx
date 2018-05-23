@@ -17,7 +17,7 @@ const answersReducer = (state: Object = {}, action: Object): Object => {
         [action.id]: {
           ...state[action.id],
           count: state[action.id].count + 1,
-        }
+        },
       };
     default:
       return state;

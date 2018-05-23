@@ -25,8 +25,8 @@ const allpollsReducer = (state: Object = {}, action: Object): Object => {
         [action.pollId]: {
           ...state[action.pollId],
           answers: state[action.pollId].answers.concat(action.answerId),
-        }
-      }
+        },
+      };
     default:
       return state;
   }
