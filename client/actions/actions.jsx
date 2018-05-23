@@ -147,8 +147,15 @@ export const castVote = (answerid) => function(dispatch: Dispatch<*>) {
     })
 }
 
-export const addAltAnswer = (pollId, newAnswer) => function(dispatch: Dispatch<*>) {
-  axios.post(`${baseUrl}poll/alt`, { pollId, newAnswer })
+export const addAltAnswer = (pollId, answerText, user_id) => function(dispatch: Dispatch<*>) {
+  const token = sessionStorage.getItem('token');
+  const axiosConfig = {
+    method: 'POST',
+    url: `${baseUrl}poll/alt`,
+    data: { pollId, answerText, user_id },
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  axios(axiosConfig)
     .then((response) => {
       const a = response.data;
       dispatch(createAnswer(a._id, a.text, 1))

@@ -2,10 +2,12 @@
 
 import React from 'react';
 import AnswerItemVote from './answer-item-vote';
+import AltAnswerForm from './alt-answer-form';
 
 type Props = {
   castVote: (answerId) => mixed,
   grabSinglePoll: (pollId) => mixed,
+  addAltAnswer: (pollId, answer, user_id) => mixed,
   authenticated: boolean,
   user_id: string,
   allPolls: Object,
@@ -24,6 +26,7 @@ export default class Single extends React.Component<Props, State> {
     };
   this.displayQuestion = this.displayQuestion.bind(this);
   this.displayAnswers = this.displayAnswers.bind(this);
+  this.displayAlt = this.displayAlt.bind(this);
   this.handleVote = this.handleVote.bind(this);
   }
 
@@ -49,19 +52,25 @@ export default class Single extends React.Component<Props, State> {
             aInfo={aInfo}
             handleVote={this.handleVote}
           />
-        // return <li
-        //   key={answerId}
-        //   name={answerId}
-        //   onClick={() => this.handleVote(answerId)}
-        // >
-        //   { a.answer } - { a.count }
-        // </li>;
       });
     }
     return <li></li>
   }
 
-  // eslint-disable-next-line no-undef
+  displayAlt(pollid) {
+    if (this.props.authenticated) {
+      return <AltAnswerForm
+        handleAlt={this.handleAlt}
+        pollid={pollid}
+        />
+    }
+    return <p>Don't like these options? Login or signup to add your own answer.</p>;
+  }
+
+  handleAlt(pollId, answerText) {
+    this.props.addAltAnswer(pollId, answerText, this.props.user_id);
+  }
+
   handleVote(answerid) {
     this.props.castVote(answerid);
     this.setState({ hasVoted: true });
@@ -77,7 +86,9 @@ export default class Single extends React.Component<Props, State> {
         <ul>
           { this.displayAnswers(pollid) }
         </ul>
-
+        <div>
+          { this.displayAlt(pollid) }
+        </div>
       </div>
     );
   }
