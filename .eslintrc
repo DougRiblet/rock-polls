@@ -4,7 +4,13 @@
     "browser": true,
     "node": true
   },
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "flowtype"
+  ],
   "rules": {
     "jsx-quotes": ["error", "prefer-single"],
     "react/prop-types": [0],

@@ -5,14 +5,12 @@ import Login from '../components/Login/login-presentational';
 
 describe('Login', () => {
   test('Snapshot', () => {
-    const Login_tree = renderer.create(
-      <Login
-        logInUser={() => logInUser()}
-        authenticated={false}
-        user_id={''}
-        username={''}
-      />
-    ).toJSON();
+    const Login_tree = renderer.create(<Login
+      logInUser={() => logInUser()}
+      authenticated={false}
+      user_id={''}
+      username={''}
+    />).toJSON();
     expect(Login_tree).toMatchSnapshot();
   });
 
