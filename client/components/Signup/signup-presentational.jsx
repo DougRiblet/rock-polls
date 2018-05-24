@@ -57,7 +57,6 @@ export default class Signup extends React.Component<Props, State> {
             <input
               id='username-input'
               type='text'
-              ref={(input) => { this.textInput = input; }}
               value={this.state.username}
               minLength='4'
               maxLength='15'
@@ -71,7 +70,6 @@ export default class Signup extends React.Component<Props, State> {
             <input
               id='password-input'
               type='text'
-              ref={(input) => { this.textInput = input; }}
               value={this.state.password}
               minLength='6'
               maxLength='19'

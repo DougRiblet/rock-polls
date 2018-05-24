@@ -92,7 +92,6 @@ export default class Create extends React.Component<Props, State> {
         <label>
           <textarea
             id='question-input'
-            ref={(input) => { this.textInput = input; }}
             value={this.state.question}
             maxLength='390'
             rows='5'
@@ -106,7 +105,6 @@ export default class Create extends React.Component<Props, State> {
           <label key={answerId}>
             <input
               className='answer-input'
-              ref={(input) => { this.textInput = input; }}
               value={this.state[answerId]}
               name={answerId}
               maxLength='99'

@@ -12,6 +12,7 @@ type Props = {
   user_id: string,
   allPolls: Object,
   allAnswers: Object,
+  match: Object,
 };
 
 type State = {
@@ -34,14 +35,14 @@ export default class Single extends React.Component<Props, State> {
     this.props.grabSinglePoll(this.props.match.params.pollid);
   }
 
-  displayQuestion(pollid) {
+  displayQuestion(pollid: string) {
     if (this.props.allPolls[pollid].question) {
       return this.props.allPolls[pollid].question;
     }
     return '';
   }
 
-  displayAnswers(pollid) {
+  displayAnswers(pollid: string) {
     const { answers } = this.props.allPolls[pollid];
     if (answers) {
       return answers.map((aId) => {
@@ -59,7 +60,7 @@ export default class Single extends React.Component<Props, State> {
     return <li />;
   }
 
-  displayAlt(pollid) {
+  displayAlt(pollid: string) {
     if (this.props.authenticated) {
       return (
         <AltAnswerForm
@@ -71,11 +72,11 @@ export default class Single extends React.Component<Props, State> {
     return <p>Don\'t like these options? Login or signup to add your own answer.</p>;
   }
 
-  handleAlt(pollId, answerText) {
+  handleAlt(pollId: string, answerText: string) {
     this.props.addAltAnswer(pollId, answerText, this.props.user_id);
   }
 
-  handleVote(answerid) {
+  handleVote(answerid: string) {
     this.props.castVote(answerid);
     this.setState({ hasVoted: true });
   }

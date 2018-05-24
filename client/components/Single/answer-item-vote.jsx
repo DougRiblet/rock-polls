@@ -2,7 +2,13 @@
 
 import React from 'react';
 
-const AnswerItemVote = ({ aId, aInfo, handleVote }) => {
+type Props = {
+  handleVote: (string) => mixed,
+  aId: string,
+  aInfo: { answer: string, count: number},
+};
+
+const AnswerItemVote = ({ aId, aInfo, handleVote }: Props) => {
   const handleClick = () => handleVote(aId);
   return (
     <li>

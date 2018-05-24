@@ -44,7 +44,6 @@ export default class Login extends React.Component<Props, State> {
             <input
               id='alt-input'
               type='text'
-              ref={(input) => { this.textInput = input; }}
               value={this.state.answer}
               maxLength='99'
               size='80'
@@ -53,11 +52,6 @@ export default class Login extends React.Component<Props, State> {
           </label>
           <input type='submit' value='submit' />
         </form>
-        <div className='show-status'>
-          <p>Authenticated: {String(this.props.authenticated)}</p>
-          <p>Username: {this.props.username}</p>
-          <p>User ID: {this.props.user_id}</p>
-        </div>
       </div>
     );
   }
