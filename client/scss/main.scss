@@ -1,4 +1,9 @@
 
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
 #login, #signup, #create, #show-all-polls, #single {
   margin-left: 150px;
 }
@@ -97,6 +102,54 @@ input[type=submit] {
     list-style-type: circle;
     li {
       font-size: 24px;
+    }
+  }
+}
+
+#header-full {
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  background-color: #112255;
+
+}
+
+#header-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  max-width: 900px;
+  margin: 0px auto;
+}
+
+#nav-left {
+  grid-column: 1;
+  padding: 6px 32px;
+  text-align: left;
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    li a {
+      color: #cccccc;
+      &:hover {
+        color: #eeeeee;
+      }
+    }
+  }
+}
+
+#nav-right {
+  grid-column: 2;
+  padding: 2px 32px;
+  text-align: right;
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    li a {
+      color: #cccccc;
+      &:hover {
+        color: #eeeeee;
+      }
     }
   }
 }

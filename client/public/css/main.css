@@ -1,3 +1,7 @@
+body {
+  padding: 0px;
+  margin: 0px; }
+
 #login, #signup, #create, #show-all-polls, #single {
   margin-left: 150px; }
 
@@ -77,3 +81,40 @@ input[type=submit] {
   list-style-type: circle; }
   #single ul li {
     font-size: 24px; }
+
+#header-full {
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  background-color: #112255; }
+
+#header-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  max-width: 900px;
+  margin: 0px auto; }
+
+#nav-left {
+  grid-column: 1;
+  padding: 6px 32px;
+  text-align: left; }
+  #nav-left ul {
+    list-style-type: none;
+    padding: 0px; }
+    #nav-left ul li a {
+      color: #cccccc; }
+      #nav-left ul li a:hover {
+        color: #eeeeee; }
+
+#nav-right {
+  grid-column: 2;
+  padding: 2px 32px;
+  text-align: right; }
+  #nav-right ul {
+    list-style-type: none;
+    padding: 0px; }
+    #nav-right ul li a {
+      color: #cccccc; }
+      #nav-right ul li a:hover {
+        color: #eeeeee; }
