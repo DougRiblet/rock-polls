@@ -15,6 +15,8 @@ type PollOptions = {
 type Props = {
   grabMyPolls: () => mixed,
   myPolls: PollOptions,
+  user_id: string,
+  username: string,
 };
 
 export default class Admin extends React.Component<Props> {
@@ -25,7 +27,7 @@ export default class Admin extends React.Component<Props> {
   }
 
   componentDidMount() {
-    this.props.grabMyPolls();
+    this.props.grabMyPolls(this.props.user_id);
   }
 
   showLoading() {
@@ -39,7 +41,6 @@ export default class Admin extends React.Component<Props> {
       .map(p => (
         <li key={p[0]}>
           <Link to={`/admin/${p[0]}`}>{p[1].question}</Link>
-          <span className='polldate'> {p[1].date.slice(0, 10)}</span>
         </li>
       ));
   }
@@ -62,3 +63,5 @@ export default class Admin extends React.Component<Props> {
     );
   }
 }
+
+//  <span className='polldate'> {p[1].date.slice(0, 10)}</span>

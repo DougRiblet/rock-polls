@@ -10,6 +10,7 @@ type Props = {
 const NavLoggedIn = () => (
   <ul>
     <li><Link to='/admin'>Admin</Link></li>
+    <li><Link to='/admin/create'>Create Poll</Link></li>
     <li><Link to='/logout'>Logout</Link></li>
   </ul>
 );

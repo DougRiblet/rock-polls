@@ -12,6 +12,7 @@ const signup = require('./auth/signup');
 const createPoll = require('./crud/create-poll');
 const grabAllPolls = require('./crud/grab-all-polls');
 const grabSinglePoll = require('./crud/grab-single-poll');
+const grabMakerPolls = require('./crud/grab-maker-polls');
 const castVote = require('./crud/cast-vote');
 const addAltAnswer = require('./crud/add-answer');
 
@@ -49,6 +50,8 @@ app.post('/auth/signup', signup);
 app.get('/poll/graball', grabAllPolls);
 
 app.get('/poll/grabsingle', grabSinglePoll);
+
+app.get('/poll/grabmaker', loginCheck, grabMakerPolls);
 
 app.post('/poll/create', loginCheck, createPoll);
 

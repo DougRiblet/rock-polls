@@ -55,6 +55,14 @@ const grabPoll = (id: string, question: string, date: string) => ({
   date,
 });
 
+const grabMyPoll = (id: string, question: string, date: string, answers: Array<string>) => ({
+  type: types.GRAB_MY_POLL,
+  id,
+  question,
+  date,
+  answers
+});
+
 const grabSingle = (id: string, question: string, date: string, answers: Array<string>) => ({
   type: types.GRAB_SINGLE,
   id,
@@ -139,7 +147,24 @@ export const grabSinglePoll = (pollid: string) => function (dispatch: Dispatch<*
 };
 
 export const grabMyPolls = (userid: string) => function (dispatch: Dispatch<*>) {
-  
+  const token = String(sessionStorage.getItem('token'));
+  const axiosConfig = {
+    method: 'GET',
+    url: `${baseUrl}poll/grabmaker`,
+    params: { userid: userid },
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  axios(axiosConfig)
+    .then((response) => {
+      const rdmp = response.data.myPolls;
+      console.log('#rdmp: ', rdmp);
+      rdmp.forEach(p => dispatch(grabMyPoll(p._id, p.question, p.date, p.answers)));
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    });
+
 }
 
 export const castVote = (answerid: string) => function (dispatch: Dispatch<*>) {

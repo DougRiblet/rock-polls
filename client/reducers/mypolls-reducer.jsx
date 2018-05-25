@@ -11,6 +11,14 @@ const mypollsReducer = (state: Object = {}, action: Object): Object => {
           answers: action.answers,
         },
       });
+    case types.GRAB_MY_POLL:
+      return Object.assign({}, state, {
+        [action.id]: {
+          question: action.question,
+          answers: action.answers,
+          date: action.date,
+        },
+      });
     default:
       return state;
   }

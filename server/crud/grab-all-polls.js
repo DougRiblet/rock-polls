@@ -1,4 +1,3 @@
-require('dotenv').load();
 const Poll = require('../models/poll');
 
 const grabAllPolls = async function grabAllPolls(req, res) {
