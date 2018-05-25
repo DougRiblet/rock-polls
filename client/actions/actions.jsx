@@ -138,6 +138,10 @@ export const grabSinglePoll = (pollid: string) => function (dispatch: Dispatch<*
     });
 };
 
+export const grabMyPolls = (userid: string) => function (dispatch: Dispatch<*>) {
+  
+}
+
 export const castVote = (answerid: string) => function (dispatch: Dispatch<*>) {
   axios.put(`${baseUrl}poll/vote`, { id: answerid })
     .then(() => {
