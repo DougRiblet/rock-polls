@@ -6,6 +6,7 @@ import adminPresent from './admin-presentational';
 const mapStateToProps = state => ({
   user_id: state.auth.user_id,
   username: state.auth.username,
+  myPolls: state.mypolls,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ grabMyPolls }, dispatch);
