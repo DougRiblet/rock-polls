@@ -2,10 +2,13 @@
 body {
   padding: 0px;
   margin: 0px;
+  text-align: center;
 }
 
-#login, #signup, #create, #show-all-polls, #single {
-  margin-left: 150px;
+#main-container {
+  margin: 20px auto;
+  text-align: left;
+  max-width: 900px;
 }
 
 input#username-input, input#password-input {

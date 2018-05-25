@@ -30,14 +30,16 @@ const MyAccount = () => (
 
 const Main = () => (
   <main>
-    <Switch>
-      <Route exact path='/' component={Home} />
-      <Route path='/polls' component={Polls} />
-      <Route path='/admin' component={MyAccount} />
-      <Route path='/login' component={Login} />
-      <Route path='/logout' component={Logout} />
-      <Route path='/signup' component={Signup} />
-    </Switch>
+    <div id='main-container'>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/polls' component={Polls} />
+        <Route path='/admin' component={MyAccount} />
+        <Route path='/login' component={Login} />
+        <Route path='/logout' component={Logout} />
+        <Route path='/signup' component={Signup} />
+      </Switch>
+    </div>
   </main>
 );
 
