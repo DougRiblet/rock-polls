@@ -23,10 +23,11 @@ export const logOutUser = () => {
   return { type: types.LOGOUT_USER };
 };
 
-const createQuestion = (id: string, question: string, answers: Array<string>) => ({
+const createQuestion = (id: string, question: string, date: string, answers: Array<string>) => ({
   type: types.CREATE_QUESTION,
   id,
   question,
+  date,
   answers,
 });
 
@@ -48,13 +49,6 @@ const addAnswer = (answerId: string, pollId: string) => ({
   pollId,
 });
 
-const grabPoll = (id: string, question: string, date: string) => ({
-  type: types.GRAB_POLL,
-  id,
-  question,
-  date,
-});
-
 const grabMyPoll = (id: string, question: string, date: string, answers: Array<string>) => ({
   type: types.GRAB_MY_POLL,
   id,
@@ -63,8 +57,8 @@ const grabMyPoll = (id: string, question: string, date: string, answers: Array<s
   answers
 });
 
-const grabSingle = (id: string, question: string, date: string, answers: Array<string>) => ({
-  type: types.GRAB_SINGLE,
+const grabSinglePoll = (id: string, question: string, date: string, answers: Array<string>) => ({
+  type: types.GRAB_SINGLE_POLL,
   id,
   question,
   date,
@@ -115,7 +109,7 @@ export const createNewPoll = (poll: newPoll) => function (dispatch: Dispatch<*>)
       const p = response.data.poll;
       const answerIdArr = p.answers.map(x => x._id);
       p.answers.forEach(y => dispatch(createAnswer(y._id, y.text, 0)));
-      dispatch(createQuestion(p._id, p.question, answerIdArr));
+      dispatch(createQuestion(p._id, p.question, p.date, answerIdArr));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
@@ -126,7 +120,7 @@ export const grabAllPolls = () => function (dispatch: Dispatch<*>) {
   axios.get(`${baseUrl}poll/graball`)
     .then((response) => {
       const rdap = response.data.allPolls;
-      rdap.forEach(p => dispatch(grabPoll(p._id, p.question, p.date)));
+      rdap.forEach(p => dispatch(grabPoll(p._id, p.question, p.date, p.answers)));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
@@ -154,11 +148,9 @@ export const grabMyPolls = (userid: string) => function (dispatch: Dispatch<*>) 
     params: { userid: userid },
     headers: { Authorization: `Bearer ${token}` },
   };
-
   axios(axiosConfig)
     .then((response) => {
       const rdmp = response.data.myPolls;
-      console.log('#rdmp: ', rdmp);
       rdmp.forEach(p => dispatch(grabMyPoll(p._id, p.question, p.date, p.answers)));
     })
     .catch((error) => {

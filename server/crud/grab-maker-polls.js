@@ -11,6 +11,3 @@ const grabMakerPolls = async function grabAllPolls(req, res) {
 };
 
 module.exports = grabMakerPolls;
-
-
-
