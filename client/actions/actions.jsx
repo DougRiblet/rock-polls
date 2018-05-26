@@ -57,7 +57,7 @@ const grabMyPoll = (id: string, question: string, date: string, answers: Array<s
   answers
 });
 
-const grabSinglePoll = (id: string, question: string, date: string, answers: Array<string>) => ({
+const grabSingle = (id: string, question: string, date: string, answers: Array<string>) => ({
   type: types.GRAB_SINGLE_POLL,
   id,
   question,
@@ -120,7 +120,7 @@ export const grabAllPolls = () => function (dispatch: Dispatch<*>) {
   axios.get(`${baseUrl}poll/graball`)
     .then((response) => {
       const rdap = response.data.allPolls;
-      rdap.forEach(p => dispatch(grabPoll(p._id, p.question, p.date, p.answers)));
+      rdap.forEach(p => dispatch(grabSingle(p._id, p.question, p.date, p.answers)));
     })
     .catch((error) => {
       console.log('### ERROR: ', error);

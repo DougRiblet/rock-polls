@@ -8,18 +8,18 @@ type Props = {
 };
 
 const NavLoggedIn = () => (
-  <ul>
-    <li><Link to='/admin'>Admin</Link></li>
-    <li><Link to='/admin/create'>Create Poll</Link></li>
-    <li><Link to='/logout'>Logout</Link></li>
-  </ul>
+  <div>
+    <Link to='/admin'><button>Admin</button></Link>
+    <Link to='/admin/create'><button>Create</button></Link>
+    <Link to='/logout'><button>Logout</button></Link>
+  </div>
 );
 
 const NavLoggedOut = () => (
-  <ul>
-    <li><Link to='/login'>Login</Link></li>
-    <li><Link to='/signup'>Signup</Link></li>
-  </ul>
+  <div>
+    <Link to='/login'><button>Login</button></Link>
+    <Link to='/signup'><button>Signup</button></Link>
+  </div>
 );
 
 const Header = ({ authenticated }: Props) => (
@@ -47,3 +47,11 @@ const Header = ({ authenticated }: Props) => (
 );
 
 export default Header;
+
+/*
+<ul>
+  <li><Link to='/login'>Login</Link></li>
+  <li><Link to='/signup'>Signup</Link></li>
+</ul>
+*/
+
