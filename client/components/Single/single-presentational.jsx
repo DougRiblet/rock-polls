@@ -47,14 +47,17 @@ export default class Single extends React.Component<Props, State> {
     if (answers) {
       return answers.map((aId) => {
         const aInfo = this.props.allAnswers[aId];
-        return (
-          <AnswerItemVote
-            key={aId}
-            aId={aId}
-            aInfo={aInfo}
-            handleVote={this.handleVote}
-          />
-        );
+        if (aInfo) {
+          return (
+            <AnswerItemVote
+              key={aId}
+              aId={aId}
+              aInfo={aInfo}
+              handleVote={this.handleVote}
+            />
+          );
+        }
+        return <li />
       });
     }
     return <li />;

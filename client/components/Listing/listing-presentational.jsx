@@ -45,19 +45,20 @@ export default class Listing extends React.Component<Props> {
   }
 
   render() {
-    if (!this.props.allPolls || !Object.keys(this.props.allPolls).length) {
-      return (
-        <div id='show-all-polls'>
-          { this.showLoading() }
-        </div>
-      );
-    }
 
+    let notReady = !this.props.allPolls || !Object.keys(this.props.allPolls).length;
     return (
       <div id='show-all-polls'>
-        <ul>
-          { this.showListing(this.props.allPolls) }
-        </ul>
+        <div id='listing-head'>
+          Latest Polls
+        </div>
+        <div id='listing-list'>
+          {
+            notReady
+            ? this.showLoading()
+            : <ul>{ this.showListing(this.props.allPolls) }</ul>
+          }
+        </div>
       </div>
     );
   }

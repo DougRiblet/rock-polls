@@ -121,16 +121,39 @@ input[type=submit] {
     #logout div button:hover {
       background-color: orange; }
 
-#show-all-polls ul {
-  list-style-type: circle; }
-  #show-all-polls ul li {
+#show-all-polls {
+  margin: 40px; }
+
+#listing-head {
+  margin: 0;
+  padding: 4px 32px;
+  font-size: 24px;
+  border-bottom: 2px solid gray; }
+
+#listing-list ul {
+  list-style-type: none; }
+  #listing-list ul li {
+    margin-top: 10px;
     font-size: 24px; }
-    #show-all-polls ul li .polldate {
+    #listing-list ul li a {
+      text-decoration: none; }
+    #listing-list ul li .polldate {
       font-size: 12px;
       font-style: italic;
       color: gray; }
 
-#single ul {
-  list-style-type: circle; }
-  #single ul li {
-    font-size: 24px; }
+#single {
+  margin: 40px; }
+  #single ul {
+    list-style-type: none; }
+    #single ul li {
+      margin-top: 10px; }
+      #single ul li button {
+        background-color: white;
+        font-size: 24px;
+        border: 1px solid white;
+        border-radius: 6px;
+        padding: 4px 10px; }
+        #single ul li button:hover {
+          background-color: #d7e7f7;
+          border: 1px solid #c7d7eb; }

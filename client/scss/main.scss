@@ -154,10 +154,25 @@ input[type=submit] {
 }
 
 #show-all-polls {
+  margin: 40px;
+}
+
+#listing-head {
+  margin: 0;
+  padding: 4px 32px;
+  font-size: 24px;
+  border-bottom: 2px solid gray;
+}
+
+#listing-list {
   ul {
-    list-style-type: circle;
+    list-style-type: none;
     li {
+      margin-top: 10px;
       font-size: 24px;
+      a {
+        text-decoration: none;
+      }
       .polldate {
         font-size: 12px;
         font-style: italic;
@@ -168,10 +183,22 @@ input[type=submit] {
 }
 
 #single {
+  margin: 40px;
   ul {
-    list-style-type: circle;
+    list-style-type: none;
     li {
-      font-size: 24px;
+      margin-top: 10px;
+      button {
+        background-color: white;
+        font-size: 24px;
+        border: 1px solid white;
+        border-radius: 6px;
+        padding: 4px 10px;
+        &:hover {
+          background-color: #d7e7f7;
+          border: 1px solid #c7d7eb;
+        }
+      }
     }
   }
 }

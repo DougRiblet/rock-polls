@@ -13,7 +13,7 @@ const AnswerItemVote = ({ aId, aInfo, handleVote }: Props) => {
   return (
     <li>
       <button className='answer-item-vote' onClick={handleClick} >
-        { aInfo.answer } -  { aInfo.count }
+        { aInfo.answer }
       </button>
     </li>
   );
