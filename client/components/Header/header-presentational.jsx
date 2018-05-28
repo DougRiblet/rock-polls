@@ -9,16 +9,15 @@ type Props = {
 
 const NavLoggedIn = () => (
   <div>
-    <Link to='/admin'><button>Admin</button></Link>
-    <Link to='/admin/create'><button>Create</button></Link>
-    <Link to='/logout'><button>Logout</button></Link>
+    <Link to='/admin'>Admin</Link>
+    <Link to='/logout'>Logout</Link>
   </div>
 );
 
 const NavLoggedOut = () => (
   <div>
-    <Link to='/login'><button>Login</button></Link>
-    <Link to='/signup'><button>Signup</button></Link>
+    <Link to='/login'>Login</Link>
+    <Link to='/signup'>Signup</Link>
   </div>
 );
 
@@ -28,10 +27,7 @@ const Header = ({ authenticated }: Props) => (
       <div id='header-full'>
         <div id='header-container'>
           <div id='nav-left'>
-            <ul>
-              <li><Link to='/'>Home</Link></li>
-              <li><Link to='/polls'>Polls</Link></li>
-            </ul>
+            <Link to='/polls'>Coding Polls</Link>
           </div>
           <div id='nav-right'>
             {

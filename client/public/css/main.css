@@ -5,7 +5,9 @@ body {
 
 #header-full {
   width: 100%;
-  margin: 0px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
   text-align: center;
   background-color: #112255; }
 
@@ -14,44 +16,44 @@ body {
   grid-template-columns: 1fr 2fr;
   grid-gap: 10px;
   max-width: 900px;
-  margin: 0px auto;
-  padding: 10px; }
+  margin: 0 auto;
+  padding: 0;
+  height: 60px; }
 
 #nav-left {
   grid-column: 1;
-  padding: 2px 32px;
+  padding: 0;
+  margin: 0;
   text-align: left; }
-  #nav-left ul {
-    list-style-type: none;
-    padding: 0px; }
-    #nav-left ul li a {
-      color: #cccccc; }
-      #nav-left ul li a:hover {
-        color: #eeeeee; }
+  #nav-left a {
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    color: lawngreen;
+    text-decoration: none; }
+    #nav-left a:hover {
+      color: #9bff3a; }
 
 #nav-right {
   grid-column: 2;
-  padding: 2px 32px;
+  padding: 0;
+  margin: 0;
   text-align: right; }
-  #nav-right button {
-    width: 80px;
-    height: 30px;
-    background-color: green;
-    color: white;
-    margin: 0px 10px;
-    padding: 2px 6px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 3px 3px 1px #444444; }
-    #nav-right button:hover {
-      background-color: #00bd00; }
-  #nav-right ul {
-    list-style-type: none;
-    padding: 0px; }
-    #nav-right ul li a {
-      color: #cccccc; }
-      #nav-right ul li a:hover {
-        color: #eeeeee; }
+  #nav-right a {
+    font-size: 16px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    width: 120px;
+    display: block;
+    float: right;
+    background-color: #112255;
+    color: #cccccc;
+    text-decoration: none; }
+    #nav-right a:hover {
+      background-color: #2244aa;
+      color: moccasin; }
 
 #main-container {
   margin: 20px auto;
