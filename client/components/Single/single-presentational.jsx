@@ -29,6 +29,7 @@ export default class Single extends React.Component<Props, State> {
     this.displayAnswers = this.displayAnswers.bind(this);
     this.displayAlt = this.displayAlt.bind(this);
     this.handleVote = this.handleVote.bind(this);
+    this.handleAlt = this.handleAlt.bind(this);
   }
 
   componentDidMount() {
@@ -57,7 +58,7 @@ export default class Single extends React.Component<Props, State> {
             />
           );
         }
-        return <li />
+        return <li />;
       });
     }
     return <li />;
@@ -72,7 +73,7 @@ export default class Single extends React.Component<Props, State> {
         />
       );
     }
-    return <p>Don\'t like these options? Login or signup to add your own answer.</p>;
+    return <p>Login or signup to add your own answer.</p>;
   }
 
   handleAlt(pollId: string, answerText: string) {
@@ -84,6 +85,24 @@ export default class Single extends React.Component<Props, State> {
     this.setState({ hasVoted: true });
   }
 
+  displayResults(pollid: string) {
+    const { answers } = this.props.allPolls[pollid];
+    if (answers) {
+      return answers.map((aId) => {
+        if (this.props.allAnswers[aId]) {
+          const aObj = this.props.allAnswers[aId];
+          aObj.id = aId;
+          return aObj;
+        }
+        return null;
+      })
+        .filter(y => y)
+        .sort((a, b) => a.count < b.count)
+        .map(a => <li key={a.id}>{a.answer} - {a.count}</li>);
+    }
+    return <li />;
+  }
+
   render() {
     const { pollid } = this.props.match.params;
     return (
@@ -91,12 +110,22 @@ export default class Single extends React.Component<Props, State> {
         <h2>
           { this.displayQuestion(pollid) }
         </h2>
-        <ul>
-          { this.displayAnswers(pollid) }
-        </ul>
-        <div>
-          { this.displayAlt(pollid) }
-        </div>
+        {
+          this.state.hasVoted
+          ?
+            <div>
+              { this.displayResults(pollid) }
+            </div>
+          :
+            <div>
+              <ul>
+                { this.displayAnswers(pollid) }
+              </ul>
+              <div>
+                { this.displayAlt(pollid) }
+              </div>
+            </div>
+        }
       </div>
     );
   }
