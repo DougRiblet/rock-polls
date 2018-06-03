@@ -3,6 +3,7 @@
 import React from 'react';
 import AnswerItemVote from './answer-item-vote';
 import AltAnswerForm from './alt-answer-form';
+import DisplayResults from './display-results';
 
 type Props = {
   castVote: (string) => mixed,
@@ -58,10 +59,8 @@ export default class Single extends React.Component<Props, State> {
             />
           );
         }
-        return <li />;
       });
     }
-    return <li />;
   }
 
   displayAlt(pollid: string) {
@@ -85,24 +84,6 @@ export default class Single extends React.Component<Props, State> {
     this.setState({ hasVoted: true });
   }
 
-  displayResults(pollid: string) {
-    const { answers } = this.props.allPolls[pollid];
-    if (answers) {
-      return answers.map((aId) => {
-        if (this.props.allAnswers[aId]) {
-          const aObj = this.props.allAnswers[aId];
-          aObj.id = aId;
-          return aObj;
-        }
-        return null;
-      })
-        .filter(y => y)
-        .sort((a, b) => a.count < b.count)
-        .map(a => <li key={a.id}>{a.answer} - {a.count}</li>);
-    }
-    return <li />;
-  }
-
   render() {
     const { pollid } = this.props.match.params;
     return (
@@ -114,7 +95,11 @@ export default class Single extends React.Component<Props, State> {
           this.state.hasVoted
           ?
             <div>
-              { this.displayResults(pollid) }
+              <DisplayResults
+                pollid={pollid}
+                allPolls={this.props.allPolls}
+                allAnswers={this.props.allAnswers}
+              />
             </div>
           :
             <div>

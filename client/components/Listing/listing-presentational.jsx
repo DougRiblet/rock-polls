@@ -45,8 +45,7 @@ export default class Listing extends React.Component<Props> {
   }
 
   render() {
-
-    let notReady = !this.props.allPolls || !Object.keys(this.props.allPolls).length;
+    const notReady = !this.props.allPolls || !Object.keys(this.props.allPolls).length;
     return (
       <div id='show-all-polls'>
         <div id='listing-head'>
