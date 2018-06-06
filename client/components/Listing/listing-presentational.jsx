@@ -49,7 +49,7 @@ export default class Listing extends React.Component<Props> {
     return (
       <div id='show-all-polls'>
         <div id='listing-head'>
-          Latest Polls
+          <h1>Latest Polls</h1>
         </div>
         <div id='listing-list'>
           {

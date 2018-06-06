@@ -9,15 +9,15 @@ type Props = {
 
 const NavLoggedIn = () => (
   <div>
-    <Link to='/admin'>Admin</Link>
-    <Link to='/logout'>Logout</Link>
+    <Link to='/admin'>admin</Link>
+    <Link to='/logout'>logout</Link>
   </div>
 );
 
 const NavLoggedOut = () => (
   <div>
-    <Link to='/login'>Login</Link>
-    <Link to='/signup'>Signup</Link>
+    <Link to='/login'>login</Link>
+    <Link to='/signup'>signup</Link>
   </div>
 );
 

@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+@import url("https://fonts.googleapis.com/css?family=Domine");
 body {
   padding: 0px;
   margin: 0px;
-  text-align: center; }
+  text-align: center;
+  font-family: 'Domine', Georgia, serif; }
 
 #header-full {
   width: 100%;
@@ -13,7 +16,7 @@ body {
 
 #header-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   max-width: 900px;
   margin: 0 auto;
@@ -28,11 +31,12 @@ body {
   #nav-left a {
     height: 60px;
     line-height: 60px;
+    font-family: 'Share Tech Mono', monospace;
     font-size: 24px;
     color: lawngreen;
     text-decoration: none; }
     #nav-left a:hover {
-      color: #9bff3a; }
+      color: #abff59; }
 
 #nav-right {
   grid-column: 2;
@@ -40,6 +44,7 @@ body {
   margin: 0;
   text-align: right; }
   #nav-right a {
+    font-family: 'Share Tech Mono', monospace;
     font-size: 16px;
     font-weight: bold;
     height: 60px;
@@ -53,10 +58,10 @@ body {
     text-decoration: none; }
     #nav-right a:hover {
       background-color: #2244aa;
-      color: moccasin; }
+      color: #f7dd69; }
 
 #main-container {
-  margin: 20px auto;
+  margin: 60px auto;
   text-align: left;
   max-width: 900px; }
 
@@ -128,12 +133,16 @@ input[type=submit] {
 
 #listing-head {
   margin: 0;
-  padding: 4px 32px;
-  font-size: 24px;
+  padding: 0;
   border-bottom: 2px solid gray; }
+  #listing-head h1 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 4px 0; }
 
 #listing-list ul {
-  list-style-type: none; }
+  list-style-type: none;
+  padding: 0; }
   #listing-list ul li {
     margin-top: 10px;
     font-size: 24px; }
