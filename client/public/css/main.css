@@ -128,27 +128,27 @@ input[type=submit] {
     #logout div button:hover {
       background-color: orange; }
 
-#show-all-polls {
+#show-all-polls, #show-my-polls {
   margin: 40px; }
 
-#listing-head {
+#listing-head, #admin-head {
   margin: 0;
   padding: 0;
   border-bottom: 2px solid gray; }
-  #listing-head h1 {
+  #listing-head h1, #admin-head h1 {
     font-size: 16px;
     font-weight: 400;
     margin: 4px 0; }
 
-#listing-list ul {
+#listing-list ul, #admin-list ul {
   list-style-type: none;
   padding: 0; }
-  #listing-list ul li {
+  #listing-list ul li, #admin-list ul li {
     margin-top: 10px;
     font-size: 24px; }
-    #listing-list ul li a {
+    #listing-list ul li a, #admin-list ul li a {
       text-decoration: none; }
-    #listing-list ul li .polldate {
+    #listing-list ul li .polldate, #admin-list ul li .polldate {
       font-size: 12px;
       font-style: italic;
       color: gray; }

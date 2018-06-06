@@ -41,26 +41,29 @@ export default class Admin extends React.Component<Props> {
       .map(p => (
         <li key={p[0]}>
           <Link to={`/admin/${p[0]}`}>{p[1].question}</Link>
+          <span className='polldate'> posted on {p[1].date.slice(0, 10)}</span>
         </li>
       ));
   }
 
   render() {
-    if (!this.props.myPolls || !Object.keys(this.props.myPolls).length) {
-      return (
-        <div id='show-my-polls'>
-          { this.showLoading() }
-        </div>
-      );
-    }
-
+    const notReady = !this.props.myPolls || !Object.keys(this.props.myPolls).length;
     return (
       <div id='show-my-polls'>
-        <ul>
-          { this.showListing(this.props.myPolls) }
-        </ul>
+        <div id='admin-head'>
+          <h1>My Polls</h1>
+        </div>
+        <div id='admin-list'>
+          {
+            notReady
+            ? this.showLoading()
+            : <ul>{ this.showListing(this.props.myPolls) }</ul>
+          }
+        </div>
       </div>
     );
+
+
   }
 }
 
