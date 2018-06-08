@@ -32,7 +32,7 @@ const Main = () => (
   <main>
     <div id='main-container'>
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={Listing} />
         <Route path='/polls' component={Polls} />
         <Route path='/admin' component={MyAccount} />
         <Route path='/login' component={Login} />
