@@ -20,6 +20,9 @@ const mypollsReducer = (state: Object = {}, action: Object): Object => {
           date: action.date,
         },
       });
+    case types.DELETE_SINGLE:
+      let { [action.id]: varval, ...rest } = state;
+      return rest;
     default:
       return state;
   }

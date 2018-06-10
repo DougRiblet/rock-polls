@@ -27,7 +27,7 @@ const Header = ({ authenticated }: Props) => (
       <div id='header-full'>
         <div id='header-container'>
           <div id='nav-left'>
-            <Link to='/polls'>Coding Polls</Link>
+            <Link to='/'>Coding Polls</Link>
           </div>
           <div id='nav-right'>
             {

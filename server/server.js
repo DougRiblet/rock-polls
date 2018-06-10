@@ -15,6 +15,7 @@ const grabSinglePoll = require('./crud/grab-single-poll');
 const grabMakerPolls = require('./crud/grab-maker-polls');
 const castVote = require('./crud/cast-vote');
 const addAltAnswer = require('./crud/add-answer');
+const deletePoll = require('./crud/delete-poll');
 
 const app = express();
 const port = process.env.PORT || 8357;
@@ -58,6 +59,8 @@ app.post('/poll/create', loginCheck, createPoll);
 app.post('/poll/alt', loginCheck, addAltAnswer);
 
 app.put('/poll/vote', castVote);
+
+app.delete('/poll/delete', loginCheck, deletePoll);
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {

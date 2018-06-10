@@ -28,6 +28,12 @@ const allpollsReducer = (state: Object = {}, action: Object): Object => {
           answers: action.answers,
         },
       });
+    case types.DELETE_SINGLE:
+      if (state.hasOwnProperty(action.id)) {
+        let { [action.id]: varval, ...rest } = state;
+        return rest;
+      }
+      return state;
     default:
       return state;
   }

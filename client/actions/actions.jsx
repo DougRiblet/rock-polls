@@ -65,6 +65,11 @@ const grabSingle = (id: string, question: string, date: string, answers: Array<s
   answers,
 });
 
+const deleteSingle = (id: string) => ({
+  type: types.DELETE_SINGLE,
+  id,
+});
+
 /* eslint-disable func-names, no-console, no-underscore-dangle */
 
 export const signUpUser = (username: string, password: string) => function (dispatch: Dispatch<*>) {
@@ -191,5 +196,23 @@ export const addAltAnswer = (
       console.log('### ERROR: ', error);
     });
 };
+
+export const deletePoll = (pollId: string, userId: string) => function (dispatch: Dispatch<*>) {
+  const token = String(sessionStorage.getItem('token'));
+  const axiosConfig = {
+    method: 'DELETE',
+    url: `${baseUrl}poll/delete`,
+    data: { pollId, user_id: userId },
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  axios(axiosConfig)
+    .then(() => {
+      dispatch(deleteSingle(pollId));
+    })
+    .catch((error) => {
+      console.log('### ERROR: ', error);
+    });
+};
+
 
 /* eslint-enable func-names, no-console, no-underscore-dangle */

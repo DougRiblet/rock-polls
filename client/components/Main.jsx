@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './Home';
 import Listing from './Listing';
 import Single from './Single';
 import Admin from './Admin';
