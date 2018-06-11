@@ -1,29 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
-export default function (ComposedComponent) {
+export default function ReqAuth (ComposedComponent) {
   class Authentication extends Component {
-    componentWillMount() {
-      if (!this.props.authenticated) {
-        this.context.router.history.push('/');
-      }
-    }
-
-    componentWillUpdate(nextProps) {
-      if (!nextProps.authenticated) {
-        this.context.router.history.push('/');
-      }
-    }
-
     render() {
+      if (!this.props.authenticated) {
+        return <Redirect to='/' />
+      }
       return <ComposedComponent {...this.props} />;
     }
   }
-
-  Authentication.contextTypes = {
-    router: PropTypes.object,
-  };
 
   const mapStateToProps = state => ({
     authenticated: state.auth.authenticated,
