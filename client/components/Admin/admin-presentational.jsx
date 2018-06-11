@@ -60,6 +60,9 @@ export default class Admin extends React.Component<Props> {
             : <ul>{ this.showListing(this.props.myPolls) }</ul>
           }
         </div>
+        <div>
+          <Link to='/admin/create'>Create New Poll</Link>
+        </div>
       </div>
     );
 
