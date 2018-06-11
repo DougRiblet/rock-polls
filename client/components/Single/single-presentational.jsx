@@ -39,28 +39,33 @@ export default class Single extends React.Component<Props, State> {
   }
 
   displayQuestion(pollid: string) {
-    if (this.props.allPolls[pollid].question) {
-      return this.props.allPolls[pollid].question;
+    if (this.props.allPolls.hasOwnProperty(pollid)) {
+      const { question } = this.props.allPolls[pollid];
+      if (question) {
+        return question;
+      }     
     }
     return '';
   }
 
   displayAnswers(pollid: string) {
-    const { answers } = this.props.allPolls[pollid];
-    if (answers) {
-      return answers.map((aId) => {
-        const aInfo = this.props.allAnswers[aId];
-        if (aInfo) {
-          return (
-            <AnswerItemVote
-              key={aId}
-              aId={aId}
-              aInfo={aInfo}
-              handleVote={this.handleVote}
-            />
-          );
-        }
-      });
+    if (this.props.allPolls.hasOwnProperty(pollid)) {
+      const { answers } = this.props.allPolls[pollid];
+      if (answers) {
+        return answers.map((aId) => {
+          const aInfo = this.props.allAnswers[aId];
+          if (aInfo) {
+            return (
+              <AnswerItemVote
+                key={aId}
+                aId={aId}
+                aInfo={aInfo}
+                handleVote={this.handleVote}
+              />
+            );
+          }
+        });
+      }
     }
   }
 
