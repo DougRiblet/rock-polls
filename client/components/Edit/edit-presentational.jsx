@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from 'react-router-dom';
 
 type Props = {
   grabSinglePoll: (string) => mixed,
@@ -74,7 +74,10 @@ class Edit extends React.Component<Props, State> {
   render() {
     const { mypollid } = this.props.match.params;
     return (
-      <div id='single'>
+      <div id='edit'>
+        <div className='backlink'>
+          <Link to='/admin'>back to my polls</Link>
+        </div>
         <h2>
           { this.displayQuestion(mypollid) }
         </h2>

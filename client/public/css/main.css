@@ -153,19 +153,28 @@ input[type=submit] {
       font-style: italic;
       color: gray; }
 
-#single {
+#single, #edit {
   margin: 40px; }
-  #single ul {
+  #single ul, #edit ul {
     list-style-type: none; }
-    #single ul li {
+    #single ul li, #edit ul li {
       margin-top: 10px; }
-      #single ul li button {
+      #single ul li button, #edit ul li button {
         background-color: white;
         font-family: 'Share Tech Mono', monospace;
         font-size: 24px;
         border: 1px solid #eeeeee;
         border-radius: 6px;
         padding: 4px 10px; }
-        #single ul li button:hover {
+        #single ul li button:hover, #edit ul li button:hover {
           background-color: #d7e7f7;
           border: 1px solid #c7d7eb; }
+
+.backlink {
+  margin-bottom: 24px; }
+  .backlink a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #999999; }
+    .backlink a:hover {
+      color: #99bbdd; }

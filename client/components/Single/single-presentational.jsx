@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AnswerItemVote from './answer-item-vote';
 import AltAnswerForm from './alt-answer-form';
 import DisplayResults from './display-results';
@@ -88,6 +89,9 @@ export default class Single extends React.Component<Props, State> {
     const { pollid } = this.props.match.params;
     return (
       <div id='single'>
+        <div className='backlink'>
+          <Link to='/'>back to polls list</Link>
+        </div>
         <h2>
           { this.displayQuestion(pollid) }
         </h2>

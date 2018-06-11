@@ -200,7 +200,7 @@ input[type=submit] {
   }
 }
 
-#single {
+#single, #edit {
   margin: 40px;
   ul {
     list-style-type: none;
@@ -222,4 +222,14 @@ input[type=submit] {
   }
 }
 
-
+.backlink {
+  margin-bottom: 24px;
+  a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #999999;
+    &:hover {
+      color: #99bbdd;
+    }
+  }
+}
