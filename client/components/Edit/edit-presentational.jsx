@@ -35,14 +35,14 @@ class Edit extends React.Component<Props, State> {
   }
 
   displayQuestion(pollid: string) {
-    if (this.props.myPolls[pollid]) {
+    if (this.props.myPolls.hasOwnProperty(pollid)) {
       return this.props.myPolls[pollid].question;
     }
     return '';
   }
 
   displayAnswers(pollid: string) {
-    if (this.props.myPolls[pollid]) {
+    if (this.props.myPolls.hasOwnProperty(pollid)) {
       const { answers } = this.props.myPolls[pollid];
       if (answers) {
         return answers.map((aId) => {
