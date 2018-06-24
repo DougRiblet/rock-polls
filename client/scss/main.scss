@@ -167,7 +167,7 @@ input[type=submit] {
 }
 
 #show-all-polls, #show-my-polls {
-  margin: 40px;
+  margin: 0;
 }
 
 #listing-head, #admin-head {
@@ -200,36 +200,39 @@ input[type=submit] {
   }
 }
 
-#single, #edit {
-  margin: 40px;
-  ul {
-    list-style-type: none;
-    li {
-      margin-top: 10px;
-      button {
-        background-color: white;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 24px;
-        border: 1px solid #eeeeee;
-        border-radius: 6px;
-        padding: 4px 10px;
-        &:hover {
-          background-color: #d7e7f7;
-          border: 1px solid #c7d7eb;
+.single {
+  margin: 0;
+  .backlink {
+    margin: 12px 0 24px 12px;
+    a {
+      font-size: 12px;
+      text-decoration: none;
+      color: #999999;
+      &:hover {
+        color: #99bbdd;
+      }
+    }
+  }
+  .single-body {
+    ul {
+      list-style-type: none;
+      li {
+        margin-top: 10px;
+        button {
+          background-color: white;
+          font-family: 'Share Tech Mono', monospace;
+          font-size: 24px;
+          border: 1px solid #eeeeee;
+          border-radius: 6px;
+          padding: 4px 10px;
+          &:hover {
+            background-color: #d7e7f7;
+            border: 1px solid #c7d7eb;
+          }
         }
       }
     }
   }
 }
 
-.backlink {
-  margin-bottom: 24px;
-  a {
-    font-size: 12px;
-    text-decoration: none;
-    color: #999999;
-    &:hover {
-      color: #99bbdd;
-    }
-  }
-}
+

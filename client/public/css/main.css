@@ -129,7 +129,7 @@ input[type=submit] {
       background-color: orange; }
 
 #show-all-polls, #show-my-polls {
-  margin: 40px; }
+  margin: 0; }
 
 #listing-head, #admin-head {
   margin: 0;

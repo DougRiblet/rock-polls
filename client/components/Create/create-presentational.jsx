@@ -60,6 +60,7 @@ export default class Create extends React.Component<Props, State> {
       answers: answersArr,
     };
     this.props.createNewPoll(pollObj);
+    this.props.history.push('/admin');
   }
 
   togglePreview() {

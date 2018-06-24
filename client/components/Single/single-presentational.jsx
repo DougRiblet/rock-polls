@@ -93,33 +93,35 @@ export default class Single extends React.Component<Props, State> {
   render() {
     const { pollid } = this.props.match.params;
     return (
-      <div id='single'>
+      <div className='single'>
         <div className='backlink'>
           <Link to='/'>back to polls list</Link>
         </div>
-        <h2>
-          { this.displayQuestion(pollid) }
-        </h2>
-        {
-          this.state.hasVoted
-          ?
-            <div>
-              <DisplayResults
-                pollid={pollid}
-                allPolls={this.props.allPolls}
-                allAnswers={this.props.allAnswers}
-              />
-            </div>
-          :
-            <div>
-              <ul>
-                { this.displayAnswers(pollid) }
-              </ul>
+        <div className='single-body'>
+          <h2>
+            { this.displayQuestion(pollid) }
+          </h2>
+          {
+            this.state.hasVoted
+            ?
               <div>
-                { this.displayAlt(pollid) }
+                <DisplayResults
+                  pollid={pollid}
+                  allPolls={this.props.allPolls}
+                  allAnswers={this.props.allAnswers}
+                />
               </div>
-            </div>
-        }
+            :
+              <div>
+                <ul>
+                  { this.displayAnswers(pollid) }
+                </ul>
+                <div>
+                  { this.displayAlt(pollid) }
+                </div>
+              </div>
+          }
+        </div>
       </div>
     );
   }
