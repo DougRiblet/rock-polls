@@ -29,8 +29,8 @@ const allpollsReducer = (state: Object = {}, action: Object): Object => {
         },
       });
     case types.DELETE_SINGLE:
-      if (state.hasOwnProperty(action.id)) {
-        let { [action.id]: varval, ...rest } = state;
+      if (Object.prototype.hasOwnProperty.call(state, action.id)) {
+        const { [action.id]: varval, ...rest } = state;
         return rest;
       }
       return state;

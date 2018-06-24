@@ -54,7 +54,7 @@ const grabMyPoll = (id: string, question: string, date: string, answers: Array<s
   id,
   question,
   date,
-  answers
+  answers,
 });
 
 const grabSingle = (id: string, question: string, date: string, answers: Array<string>) => ({
@@ -150,7 +150,7 @@ export const grabMyPolls = (userid: string) => function (dispatch: Dispatch<*>) 
   const axiosConfig = {
     method: 'GET',
     url: `${baseUrl}poll/grabmaker`,
-    params: { userid: userid },
+    params: { userid },
     headers: { Authorization: `Bearer ${token}` },
   };
   axios(axiosConfig)
@@ -161,8 +161,7 @@ export const grabMyPolls = (userid: string) => function (dispatch: Dispatch<*>) 
     .catch((error) => {
       console.log('### ERROR: ', error);
     });
-
-}
+};
 
 export const castVote = (answerid: string) => function (dispatch: Dispatch<*>) {
   axios.put(`${baseUrl}poll/vote`, { id: answerid })
