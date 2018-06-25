@@ -35,26 +35,31 @@ class Edit extends React.Component<Props, State> {
   }
 
   displayQuestion(pollid: string) {
-    if (this.props.myPolls.hasOwnProperty(pollid)) {
+    const hop = Object.prototype.hasOwnProperty.call(this.props.myPolls, pollid);
+    if (hop) {
       return this.props.myPolls[pollid].question;
     }
     return '';
   }
 
   displayAnswers(pollid: string) {
-    if (this.props.myPolls.hasOwnProperty(pollid)) {
+    const hop = Object.prototype.hasOwnProperty.call(this.props.myPolls, pollid);
+    if (hop) {
       const { answers } = this.props.myPolls[pollid];
       if (answers) {
         return answers.map((aId) => {
           const aInfo = this.props.allAnswers[aId];
           if (aInfo) {
             return (
-              <li key={ aId }>{ aInfo.answer }</li>
+              <li key={aId}>{ aInfo.answer }</li>
             );
           }
+          return '';
         });
       }
+      return '';
     }
+    return '';
   }
 
   askForDelete() {
@@ -90,24 +95,26 @@ class Edit extends React.Component<Props, State> {
           <div className='delete-button'>
             {
               this.state.askDelete
-              ?
-                <div>
-                <p>Are you sure you wish to delete this poll? This step cannot be undone.</p>
-                <p>
-                  <button id='cancel-delete-button' onClick={this.cancelDelete}>
-                    Cancel, Keep This Poll
-                  </button>
-                  <button id='delete-forever-button' onClick={this.deleteForever}>
-                    Delete This Poll Forever
-                  </button>
-                </p>
-                </div>
-              :
-                <p>
-                  <button id='ask-delete-button' onClick={this.askForDelete}>
-                    Delete Poll
-                  </button>
-                </p>
+                ?
+                  <div>
+                    <p>Are you sure you wish to delete this poll? This step cannot be undone.</p>
+                    <p>
+                      <button id='cancel-delete-button' onClick={this.cancelDelete}>
+                        Cancel, Keep This Poll
+                      </button>
+                      <button id='delete-forever-button' onClick={this.deleteForever}>
+                        Delete This Poll Forever
+                      </button>
+                    </p>
+                  </div>
+                :
+                  <div>
+                    <p>
+                      <button id='ask-delete-button' onClick={this.askForDelete}>
+                        Delete Poll
+                      </button>
+                    </p>
+                  </div>
             }
           </div>
         </div>

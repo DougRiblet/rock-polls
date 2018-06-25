@@ -65,9 +65,5 @@ export default class Admin extends React.Component<Props> {
         </div>
       </div>
     );
-
-
   }
 }
-
-//  <span className='polldate'> {p[1].date.slice(0, 10)}</span>

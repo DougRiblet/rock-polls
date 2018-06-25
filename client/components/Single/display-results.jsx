@@ -24,6 +24,7 @@ const DisplayResults = ({ allPolls, allAnswers, pollid }: Props) => {
         .sort((a, b) => a.count < b.count)
         .map(a => <li key={a.id}>{a.answer} - {a.count}</li>);
     }
+    return '';
   };
   return (
     <ul>

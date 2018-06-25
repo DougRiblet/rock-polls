@@ -39,17 +39,19 @@ export default class Single extends React.Component<Props, State> {
   }
 
   displayQuestion(pollid: string) {
-    if (this.props.allPolls.hasOwnProperty(pollid)) {
+    const hop = Object.prototype.hasOwnProperty.call(this.props.allPolls, pollid);
+    if (hop) {
       const { question } = this.props.allPolls[pollid];
       if (question) {
         return question;
-      }     
+      }
     }
     return '';
   }
 
   displayAnswers(pollid: string) {
-    if (this.props.allPolls.hasOwnProperty(pollid)) {
+    const hop = Object.prototype.hasOwnProperty.call(this.props.allPolls, pollid);
+    if (hop) {
       const { answers } = this.props.allPolls[pollid];
       if (answers) {
         return answers.map((aId) => {
@@ -64,9 +66,12 @@ export default class Single extends React.Component<Props, State> {
               />
             );
           }
+          return '';
         });
       }
+      return '';
     }
+    return '';
   }
 
   displayAlt(pollid: string) {
