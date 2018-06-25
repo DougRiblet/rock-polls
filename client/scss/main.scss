@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
 @import url('https://fonts.googleapis.com/css?family=Domine');
 
-@mixin button($background-color, $text-color){
-  width: 80px;
+@mixin button($background-color, $text-color, $width){
+  width: $width;
   height: 30px;
   background-color: $background-color;
   color: $text-color;
@@ -235,4 +235,10 @@ input[type=submit] {
   }
 }
 
+#ask-delete-button, #delete-forever-button {
+  @include button(#aa3333, #fafafa, 220px);
+}
 
+#cancel-delete-button {
+  @include button(#33aa33, #fafafa, 220px);
+}

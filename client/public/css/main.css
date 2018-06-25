@@ -153,28 +153,53 @@ input[type=submit] {
       font-style: italic;
       color: gray; }
 
-#single, #edit {
-  margin: 40px; }
-  #single ul, #edit ul {
+.single {
+  margin: 0; }
+  .single .backlink {
+    margin: 12px 0 24px 12px; }
+    .single .backlink a {
+      font-size: 12px;
+      text-decoration: none;
+      color: #999999; }
+      .single .backlink a:hover {
+        color: #99bbdd; }
+  .single .single-body ul {
     list-style-type: none; }
-    #single ul li, #edit ul li {
+    .single .single-body ul li {
       margin-top: 10px; }
-      #single ul li button, #edit ul li button {
+      .single .single-body ul li button {
         background-color: white;
         font-family: 'Share Tech Mono', monospace;
         font-size: 24px;
         border: 1px solid #eeeeee;
         border-radius: 6px;
         padding: 4px 10px; }
-        #single ul li button:hover, #edit ul li button:hover {
+        .single .single-body ul li button:hover {
           background-color: #d7e7f7;
           border: 1px solid #c7d7eb; }
 
-.backlink {
-  margin-bottom: 24px; }
-  .backlink a {
-    font-size: 12px;
-    text-decoration: none;
-    color: #999999; }
-    .backlink a:hover {
-      color: #99bbdd; }
+#ask-delete-button, #delete-forever-button {
+  width: 220px;
+  height: 30px;
+  background-color: #aa3333;
+  color: #fafafa;
+  margin: 0px 10px;
+  padding: 2px 6px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 3px 3px 1px #444444; }
+  #ask-delete-button:hover, #delete-forever-button:hover {
+    background-color: #ca5050; }
+
+#cancel-delete-button {
+  width: 220px;
+  height: 30px;
+  background-color: #33aa33;
+  color: #fafafa;
+  margin: 0px 10px;
+  padding: 2px 6px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 3px 3px 1px #444444; }
+  #cancel-delete-button:hover {
+    background-color: #50ca50; }
