@@ -70,12 +70,6 @@ input#username-input, input#password-input {
   margin: 8px 6px;
   box-sizing: border-box; }
 
-input.answer-input {
-  padding: 4px 8px;
-  display: block;
-  box-sizing: border-box;
-  margin: 8px 0px; }
-
 #create-preview {
   width: 500px;
   padding: 2px 16px 8px 16px;
@@ -184,6 +178,15 @@ input[type=submit] {
           .single .single-body ul li button:hover {
             background-color: SeaGreen;
             color: white; }
+
+input#alt-input {
+  padding: 4px 10px;
+  margin: 8px;
+  width: 440px;
+  display: block;
+  box-sizing: border-box;
+  font-family: 'Domine', Georgia, serif;
+  border: 1pt solid SeaGreen; }
 
 .alt-suggest {
   font-size: 80%;

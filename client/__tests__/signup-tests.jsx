@@ -23,5 +23,4 @@ describe('Signup', () => {
       username={''}
     />, div);
   });
-
 });

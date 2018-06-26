@@ -23,5 +23,4 @@ describe('Logout', () => {
       username={''}
     />, div);
   });
-
 });

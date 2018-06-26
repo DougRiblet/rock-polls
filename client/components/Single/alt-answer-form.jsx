@@ -53,6 +53,7 @@ export default class Login extends React.Component<Props, State> {
               onChange={this.handleChange}
             />
           </label>
+          <br />
           <input type='submit' value='submit' />
         </form>
       </div>
