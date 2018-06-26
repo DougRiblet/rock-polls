@@ -109,7 +109,7 @@ input[type=submit] {
   box-sizing: border-box; }
 
 #logout {
-  margin-left: 150px; }
+  margin: 80px 120px; }
   #logout div button {
     width: 160px;
     height: 60px;
@@ -121,6 +121,9 @@ input[type=submit] {
     box-shadow: 4px 4px 2px #444; }
     #logout div button:hover {
       background-color: orange; }
+
+#login, #signup {
+  margin: 80px 120px; }
 
 #show-all-polls, #show-my-polls {
   margin: 24px 36px; }
