@@ -39,6 +39,9 @@ export default class Login extends React.Component<Props, State> {
   render() {
     return (
       <div id='alt-answer'>
+        <p className='alt-suggest'>
+          Click your choice to vote, or use the write-in ballot below.
+        </p>
         <form onSubmit={this.handleSubmit}>
           <label>
             <input

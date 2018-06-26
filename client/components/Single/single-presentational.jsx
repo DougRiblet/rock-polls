@@ -83,7 +83,11 @@ export default class Single extends React.Component<Props, State> {
         />
       );
     }
-    return <p>Login or signup to add your own answer.</p>;
+    return (
+      <p className='alt-suggest'>
+        Click your choice to vote. Logged-in users have a write-in option.
+      </p>
+    );
   }
 
   handleAlt(pollId: string, answerText: string) {
@@ -103,9 +107,9 @@ export default class Single extends React.Component<Props, State> {
           <Link to='/'>back to polls list</Link>
         </div>
         <div className='single-body'>
-          <h2>
+          <h1>
             { this.displayQuestion(pollid) }
-          </h2>
+          </h1>
           {
             this.state.hasVoted
             ?

@@ -61,7 +61,7 @@ body {
       color: #f7dd69; }
 
 #main-container {
-  margin: 60px auto;
+  margin: 12px auto;
   text-align: left;
   max-width: 900px; }
 
@@ -129,7 +129,7 @@ input[type=submit] {
       background-color: orange; }
 
 #show-all-polls, #show-my-polls {
-  margin: 0; }
+  margin: 24px 36px; }
 
 #listing-head, #admin-head {
   margin: 0;
@@ -156,27 +156,38 @@ input[type=submit] {
 .single {
   margin: 0; }
   .single .backlink {
-    margin: 12px 0 24px 12px; }
+    margin: 8px 0 24px 8px; }
     .single .backlink a {
       font-size: 12px;
       text-decoration: none;
       color: #999999; }
       .single .backlink a:hover {
         color: #99bbdd; }
-  .single .single-body ul {
-    list-style-type: none; }
-    .single .single-body ul li {
-      margin-top: 10px; }
-      .single .single-body ul li button {
-        background-color: white;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 24px;
-        border: 1px solid #eeeeee;
-        border-radius: 6px;
-        padding: 4px 10px; }
-        .single .single-body ul li button:hover {
-          background-color: #d7e7f7;
-          border: 1px solid #c7d7eb; }
+  .single .single-body {
+    margin: 48px; }
+    .single .single-body ul {
+      list-style-type: none;
+      padding-left: 8px; }
+      .single .single-body ul li {
+        margin-top: 10px; }
+        .single .single-body ul li button {
+          width: 440px;
+          text-align: left;
+          cursor: pointer;
+          background-color: PaleGreen;
+          color: #000204;
+          font-family: 'Share Tech Mono', monospace;
+          font-size: 24px;
+          border: 1px solid #666666;
+          border-radius: 4px;
+          padding: 4px 10px; }
+          .single .single-body ul li button:hover {
+            background-color: SeaGreen;
+            color: white; }
+
+.alt-suggest {
+  font-size: 80%;
+  margin: 12px; }
 
 #ask-delete-button, #delete-forever-button {
   width: 220px;
