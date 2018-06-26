@@ -54,9 +54,7 @@ body {
     font-size: 24px;
     color: lawngreen;
     text-decoration: none;
-    &:hover {
-      color: lighten(lawngreen, 18%);
-    }
+    cursor: pointer;
   }
 }
 
@@ -80,7 +78,7 @@ body {
     text-decoration: none;
     &:hover {
       background-color: lighten(#112255, 20%);
-      color: #f7dd69;
+      color: lawngreen;
     }
   }
 }

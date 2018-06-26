@@ -34,9 +34,8 @@ body {
     font-family: 'Share Tech Mono', monospace;
     font-size: 24px;
     color: lawngreen;
-    text-decoration: none; }
-    #nav-left a:hover {
-      color: #abff59; }
+    text-decoration: none;
+    cursor: pointer; }
 
 #nav-right {
   grid-column: 2;
@@ -58,7 +57,7 @@ body {
     text-decoration: none; }
     #nav-right a:hover {
       background-color: #2244aa;
-      color: #f7dd69; }
+      color: lawngreen; }
 
 #main-container {
   margin: 12px auto;
