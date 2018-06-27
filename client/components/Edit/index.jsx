@@ -6,7 +6,6 @@ import editPresent from './edit-presentational';
 const mapStateToProps = state => ({
   myPolls: state.mypolls,
   allAnswers: state.answers,
-  authenticated: state.auth.authenticated,
   user_id: state.auth.user_id,
 });
 
