@@ -51,7 +51,7 @@ export default class Admin extends React.Component<Props> {
     return (
       <div id='show-my-polls'>
         <div id='admin-head'>
-          <h1>My Polls</h1>
+          <h2>Polls Created by {this.props.username}</h2>
         </div>
         <div id='admin-list'>
           {
@@ -60,8 +60,10 @@ export default class Admin extends React.Component<Props> {
             : <ul>{ this.showListing(this.props.myPolls) }</ul>
           }
         </div>
-        <div>
-          <Link to='/admin/create'>Create New Poll</Link>
+        <div id='add-new-poll'>
+          <Link to='/admin/create'>
+            <button id='create-new-button'>Create New Poll</button>
+          </Link>
         </div>
       </div>
     );

@@ -165,11 +165,22 @@ input[type=submit] {
   margin: 24px 36px;
 }
 
-#listing-head, #admin-head {
+#listing-head {
   margin: 0;
   padding: 0;
   border-bottom: 2px solid gray;
   h1 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 4px 0;
+  }
+}
+
+#admin-head {
+  margin: 0;
+  padding: 4px 0;
+  border-bottom: 2px solid gray;
+  h2 {
     font-size: 16px;
     font-weight: 400;
     margin: 4px 0;
@@ -193,6 +204,14 @@ input[type=submit] {
       }
     }
   }
+}
+
+#add-new-poll {
+  padding: 16px 0
+}
+
+#create-new-button {
+  @include button(#33aa33, #fafafa, 220px);
 }
 
 .single {
