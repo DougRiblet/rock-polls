@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import {Bar} from 'react-chartjs-2';
 
 type Props = {
   grabSinglePoll: (string) => mixed,
@@ -62,6 +63,48 @@ class Edit extends React.Component<Props, State> {
     return '';
   }
 
+  displayChart(pollid: string) {
+    const allAns = this.props.allAnswers;
+    const hop = Object.prototype.hasOwnProperty.call(this.props.myPolls, pollid);
+    if (hop) {
+      const { answers } = this.props.myPolls[pollid];
+      if (answers) {
+        const answerList = answers.map(function(aId){
+          const ahop = Object.prototype.hasOwnProperty.call(allAns, aId);
+          if (ahop) {
+            const aInfo = allAns[aId];
+            if (aInfo) {
+              return {
+                answer: aInfo.answer,
+                count: aInfo.count,
+              };
+            }
+          }
+          return null;
+        }).filter(x => x).sort((j, k) => k.count > j.count);
+        console.log('### ANSWER LIST: ', answerList);
+        const answerLabels = [];
+        const countData = [];
+        answerList.forEach(function(ans){
+          answerLabels.push(ans.answer);
+          countData.push(ans.count);
+        });
+        const dataProp = {
+          labels: answerLabels,
+          datasets: [{
+            label: "Poll Results",
+            backgroundColor: '#2E8B57',
+            borderColor: '#2E8B57',
+            data: countData,
+          }],
+        };
+        return <Bar data={dataProp} />;
+      }
+      return <p></p>;
+    }
+    return <p></p>;
+  }
+
   askForDelete() {
     this.setState({ askDelete: true });
   }
@@ -88,9 +131,7 @@ class Edit extends React.Component<Props, State> {
             { this.displayQuestion(mypollid) }
           </h2>
           <div>
-            <ul>
-              { this.displayAnswers(mypollid) }
-            </ul>
+              { this.displayChart(mypollid) }
           </div>
           <div className='delete-button'>
             {
