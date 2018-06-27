@@ -20,7 +20,6 @@ type Props = {
 export default class Listing extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
-    this.showLoading = this.showLoading.bind(this);
     this.showListing = this.showListing.bind(this);
   }
 
