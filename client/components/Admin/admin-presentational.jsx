@@ -30,12 +30,8 @@ export default class Admin extends React.Component<Props> {
     this.props.grabMyPolls(this.props.user_id);
   }
 
-  showLoading() {
-    return <p className='loading'>L O A D I N G</p>;
-  }
-
-  showListing(myPolls: PollOptions) {
-    const mp = Object.entries(myPolls);
+  showListing() {
+    const mp = Object.entries(this.props.myPolls);
     return mp
       .sort((a, b) => new Date(b[1].date) - new Date(a[1].date))
       .map(p => (
@@ -56,8 +52,8 @@ export default class Admin extends React.Component<Props> {
         <div id='admin-list'>
           {
             notReady
-            ? this.showLoading()
-            : <ul>{ this.showListing(this.props.myPolls) }</ul>
+            ? <p className='loading'>No Polls Found</p>
+            : <ul>{ this.showListing() }</ul>
           }
         </div>
         <div id='add-new-poll'>

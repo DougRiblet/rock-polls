@@ -28,12 +28,8 @@ export default class Listing extends React.Component<Props> {
     this.props.grabAllPolls();
   }
 
-  showLoading() {
-    return <p className='loading'>L O A D I N G</p>;
-  }
-
-  showListing(allPolls: PollOptions) {
-    const ap = Object.entries(allPolls);
+  showListing() {
+    const ap = Object.entries(this.props.allPolls);
     return ap
       .sort((a, b) => new Date(b[1].date) - new Date(a[1].date))
       .map(p => (
@@ -54,8 +50,8 @@ export default class Listing extends React.Component<Props> {
         <div id='listing-list'>
           {
             notReady
-            ? this.showLoading()
-            : <ul>{ this.showListing(this.props.allPolls) }</ul>
+            ? <p className='loading'>L O A D I N G</p>
+            : <ul>{ this.showListing() }</ul>
           }
         </div>
       </div>
