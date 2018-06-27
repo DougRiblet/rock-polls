@@ -43,26 +43,6 @@ class Edit extends React.Component<Props, State> {
     return '';
   }
 
-  displayAnswers(pollid: string) {
-    const hop = Object.prototype.hasOwnProperty.call(this.props.myPolls, pollid);
-    if (hop) {
-      const { answers } = this.props.myPolls[pollid];
-      if (answers) {
-        return answers.map((aId) => {
-          const aInfo = this.props.allAnswers[aId];
-          if (aInfo) {
-            return (
-              <li key={aId}>{ aInfo.answer }</li>
-            );
-          }
-          return '';
-        });
-      }
-      return '';
-    }
-    return '';
-  }
-
   displayChart(pollid: string) {
     const allAns = this.props.allAnswers;
     const hop = Object.prototype.hasOwnProperty.call(this.props.myPolls, pollid);
@@ -82,7 +62,6 @@ class Edit extends React.Component<Props, State> {
           }
           return null;
         }).filter(x => x).sort((j, k) => k.count > j.count);
-        console.log('### ANSWER LIST: ', answerList);
         const answerLabels = [];
         const countData = [];
         answerList.forEach(function(ans){

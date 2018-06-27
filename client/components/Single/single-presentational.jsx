@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AnswerItemVote from './answer-item-vote';
 import AltAnswerForm from './alt-answer-form';
-import DisplayResults from './display-results';
+import {Bar} from 'react-chartjs-2';
 
 type Props = {
   castVote: (string) => mixed,
@@ -74,6 +74,47 @@ export default class Single extends React.Component<Props, State> {
     return '';
   }
 
+  displayChart(pollid: string) {
+    const allAns = this.props.allAnswers;
+    const hop = Object.prototype.hasOwnProperty.call(this.props.allPolls, pollid);
+    if (hop) {
+      const { answers } = this.props.allPolls[pollid];
+      if (answers) {
+        const answerList = answers.map(function(aId){
+          const ahop = Object.prototype.hasOwnProperty.call(allAns, aId);
+          if (ahop) {
+            const aInfo = allAns[aId];
+            if (aInfo) {
+              return {
+                answer: aInfo.answer,
+                count: aInfo.count,
+              };
+            }
+          }
+          return null;
+        }).filter(x => x).sort((j, k) => k.count > j.count);
+        const answerLabels = [];
+        const countData = [];
+        answerList.forEach(function(ans){
+          answerLabels.push(ans.answer);
+          countData.push(ans.count);
+        });
+        const dataProp = {
+          labels: answerLabels,
+          datasets: [{
+            label: "Poll Results",
+            backgroundColor: '#2E8B57',
+            borderColor: '#2E8B57',
+            data: countData,
+          }],
+        };
+        return <Bar data={dataProp} />;
+      }
+      return <p></p>;
+    }
+    return <p></p>;
+  }
+
   displayAlt(pollid: string) {
     if (this.props.authenticated) {
       return (
@@ -114,11 +155,7 @@ export default class Single extends React.Component<Props, State> {
             this.state.hasVoted
             ?
               <div>
-                <DisplayResults
-                  pollid={pollid}
-                  allPolls={this.props.allPolls}
-                  allAnswers={this.props.allAnswers}
-                />
+                { this.displayChart(pollid) }
               </div>
             :
               <div>
