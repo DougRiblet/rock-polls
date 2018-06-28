@@ -69,6 +69,11 @@ input#username-input, input#password-input {
   margin: 8px 6px;
   box-sizing: border-box; }
 
+input.answer-input {
+  padding: 4px 8px;
+  margin: 8px 6px;
+  box-sizing: border-box; }
+
 #create-preview {
   width: 500px;
   padding: 2px 16px 8px 16px;
