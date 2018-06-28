@@ -1,7 +1,7 @@
 {
   "name": "rockpolls",
   "version": "1.0.0",
-  "description": "ask and answer questions about rock and roll",
+  "description": "ask and answer questions about coding",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/server.js",
