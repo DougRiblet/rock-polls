@@ -24,7 +24,6 @@ class Edit extends React.Component<Props, State> {
       askDelete: false,
     };
     this.displayQuestion = this.displayQuestion.bind(this);
-    this.displayAnswers = this.displayAnswers.bind(this);
     this.deleteForever = this.deleteForever.bind(this);
     this.askForDelete = this.askForDelete.bind(this);
     this.cancelDelete = this.cancelDelete.bind(this);

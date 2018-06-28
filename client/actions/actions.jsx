@@ -19,7 +19,9 @@ const signUpSuccess = (id: string, username: string) => ({
 });
 
 export const logOutUser = () => {
-  sessionStorage.removeItem('token');
+  localStorage.removeItem('token');
+  localStorage.removeItem('userid');
+  localStorage.removeItem('username');
   return { type: types.LOGOUT_USER };
 };
 
@@ -79,7 +81,9 @@ export const signUpUser = (username: string, password: string) => function (disp
   })
     .then((response) => {
       dispatch(signUpSuccess(response.data.id, response.data.username));
-      sessionStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userid', response.data.id);
+      localStorage.setItem('username', response.data.username);
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
@@ -93,16 +97,28 @@ export const logInUser = (username: string, password: string) => function (dispa
   })
     .then((response) => {
       dispatch(logInSuccess(response.data.id, response.data.username));
-      sessionStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userid', response.data.id);
+      localStorage.setItem('username', response.data.username);
     })
     .catch((error) => {
       console.log('### ERROR: ', error);
     });
 };
 
+export const refreshLogin = () => function(dispatch: Dispatch<*>) {
+  console.log('#### REFRESHING B');
+  const userid = localStorage.getItem('userid');
+  const username = localStorage.getItem('username');
+  if (userid && username) {
+    console.log('#### REFRESHING C');
+    dispatch(logInSuccess(userid, username));
+  }
+}
+
 // eslint-disable-next-line no-undef
 export const createNewPoll = (poll: newPoll) => function (dispatch: Dispatch<*>) {
-  const token = String(sessionStorage.getItem('token'));
+  const token = String(localStorage.getItem('token'));
   const axiosConfig = {
     method: 'POST',
     url: `${baseUrl}poll/create`,
@@ -146,7 +162,7 @@ export const grabSinglePoll = (pollid: string) => function (dispatch: Dispatch<*
 };
 
 export const grabMyPolls = (userid: string) => function (dispatch: Dispatch<*>) {
-  const token = String(sessionStorage.getItem('token'));
+  const token = String(localStorage.getItem('token'));
   const axiosConfig = {
     method: 'GET',
     url: `${baseUrl}poll/grabmaker`,
@@ -178,7 +194,7 @@ export const addAltAnswer = (
   answerText: string,
   userId: string,
 ) => function (dispatch: Dispatch<*>) {
-  const token = String(sessionStorage.getItem('token'));
+  const token = String(localStorage.getItem('token'));
   const axiosConfig = {
     method: 'POST',
     url: `${baseUrl}poll/alt`,
@@ -197,7 +213,7 @@ export const addAltAnswer = (
 };
 
 export const deletePoll = (pollId: string, userId: string) => function (dispatch: Dispatch<*>) {
-  const token = String(sessionStorage.getItem('token'));
+  const token = String(localStorage.getItem('token'));
   const axiosConfig = {
     method: 'DELETE',
     url: `${baseUrl}poll/delete`,
