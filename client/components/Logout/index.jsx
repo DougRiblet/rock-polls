@@ -5,7 +5,6 @@ import logoutPresent from './logout-presentational';
 
 const mapStateToProps = state => ({
   authenticated: state.auth.authenticated,
-  user_id: state.auth.user_id,
   username: state.auth.username,
 });
 

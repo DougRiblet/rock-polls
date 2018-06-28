@@ -5,7 +5,6 @@ import signupPresent from './signup-presentational';
 
 const mapStateToProps = state => ({
   authenticated: state.auth.authenticated,
-  user_id: state.auth.user_id,
   username: state.auth.username,
 });
 

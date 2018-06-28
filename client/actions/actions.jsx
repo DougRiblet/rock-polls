@@ -106,7 +106,7 @@ export const logInUser = (username: string, password: string) => function (dispa
     });
 };
 
-export const refreshLogin = () => function(dispatch: Dispatch<*>) {
+export const refreshLogin = () => function (dispatch: Dispatch<*>) {
   console.log('#### REFRESHING B');
   const userid = localStorage.getItem('userid');
   const username = localStorage.getItem('username');
@@ -114,7 +114,7 @@ export const refreshLogin = () => function(dispatch: Dispatch<*>) {
     console.log('#### REFRESHING C');
     dispatch(logInSuccess(userid, username));
   }
-}
+};
 
 // eslint-disable-next-line no-undef
 export const createNewPoll = (poll: newPoll) => function (dispatch: Dispatch<*>) {

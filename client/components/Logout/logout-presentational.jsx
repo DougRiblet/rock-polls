@@ -5,7 +5,6 @@ import React from 'react';
 type Props = {
   logOutUser: () => mixed,
   authenticated: boolean,
-  user_id: string,
   username: string,
 };
 
@@ -33,7 +32,6 @@ export default class Logout extends React.Component<Props> {
         <div className='show-status'>
           <p>Authenticated: {String(this.props.authenticated)}</p>
           <p>Username: {this.props.username}</p>
-          <p>User ID: {this.props.user_id}</p>
         </div>
       </div>
     );

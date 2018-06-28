@@ -5,7 +5,6 @@ import React from 'react';
 type Props = {
   signUpUser: (string, string) => mixed,
   authenticated: boolean,
-  user_id: string,
   username: string,
 };
 
@@ -83,7 +82,6 @@ export default class Signup extends React.Component<Props, State> {
         <div className='show-status'>
           <p>Authenticated: {String(this.props.authenticated)}</p>
           <p>Username: {this.props.username}</p>
-          <p>User ID: {this.props.user_id}</p>
         </div>
       </div>
 
