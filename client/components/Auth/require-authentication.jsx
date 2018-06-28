@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 export default function ReqAuth(ComposedComponent) {
+  // eslint-disable-next-line react/prefer-stateless-function
   class Authentication extends Component {
     render() {
       if (!this.props.authenticated) {
