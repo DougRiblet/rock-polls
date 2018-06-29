@@ -5,11 +5,11 @@ const Answer = require('../models/answer');
 const grabSinglePoll = async function grabSinglePoll(req, res) {
   try {
     const onePoll = await Poll.findById(req.query.id);
-    const opAnswers = [];
+    const poolAnswers = [];
     for (const answer of onePoll.answers) {
-      const newAns = await Answer.findById(answer);
-      opAnswers.push(newAns);
+      poolAnswers.push(Answer.findById(answer));
     }
+    const opAnswers = await Promise.all(poolAnswers);
     return res.status(200).json({ onePoll, opAnswers });
   } catch (error) {
     return res.status(400).send(error);
