@@ -9,6 +9,6 @@ const castVote = async function castVote(req, res) {
   } catch (error) {
     return res.status(400).send(error);
   }
-}
+};
 
 module.exports = castVote;

@@ -13,6 +13,7 @@
     "flowtype"
   ],
   "rules": {
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
     "jsx-quotes": ["error", "prefer-single"],
     "react/prop-types": [0],
     "jsx-a11y/anchor-is-valid": ["error", {

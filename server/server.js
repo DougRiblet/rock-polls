@@ -62,12 +62,12 @@ app.put('/poll/vote', castVote);
 
 app.delete('/poll/delete', loginCheck, deletePoll);
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/public/index.html'), (err) => {
     if (err) {
-      res.status(500).send(err)
+      res.status(500).send(err);
     }
-  })
+  });
 });
 
 app.use((req, res) => {

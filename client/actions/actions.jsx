@@ -72,7 +72,7 @@ const deleteSingle = (id: string) => ({
   id,
 });
 
-/* eslint-disable func-names, no-console, no-underscore-dangle */
+/* eslint-disable func-names, no-console */
 
 export const signUpUser = (username: string, password: string) => function (dispatch: Dispatch<*>) {
   axios.post(`${baseUrl}auth/signup`, {
@@ -220,4 +220,4 @@ export const deletePoll = (pollId: string, userId: string) => function (dispatch
 };
 
 
-/* eslint-enable func-names, no-console, no-underscore-dangle */
+/* eslint-enable func-names, no-console */
