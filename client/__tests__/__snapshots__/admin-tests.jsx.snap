@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin Snapshot 1`] = `
+<div
+  id="show-my-polls"
+>
+  <div
+    id="admin-head"
+  >
+    <h2>
+      Polls Created by 
+      
+    </h2>
+  </div>
+  <div
+    id="admin-list"
+  >
+    <p
+      className="loading"
+    >
+      No Polls Found
+    </p>
+  </div>
+  <div
+    id="add-new-poll"
+  >
+    <Link
+      to="/admin/create"
+    >
+      <button
+        id="create-new-button"
+      >
+        Create New Poll
+      </button>
+    </Link>
+  </div>
+</div>
+`;
