@@ -5,22 +5,20 @@ import Signup from '../components/Signup/signup-presentational';
 
 describe('Signup', () => {
   test('Snapshot', () => {
-    const Signup_tree = renderer.create(<Signup
-      signUpUser={() => signUpUser()}
+    const tree = renderer.create(<Signup
+      signUpUser={() => jest.fn()}
       authenticated={false}
-      user_id={''}
-      username={''}
+      username=''
     />).toJSON();
-    expect(Signup_tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   test('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Signup
-      signUpUser={() => signUpUser()}
+      signUpUser={() => jest.fn()}
       authenticated={false}
-      user_id={''}
-      username={''}
+      username=''
     />, div);
   });
 });

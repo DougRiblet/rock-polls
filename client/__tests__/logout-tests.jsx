@@ -5,22 +5,20 @@ import Logout from '../components/Logout/logout-presentational';
 
 describe('Logout', () => {
   test('Snapshot', () => {
-    const Logout_tree = renderer.create(<Logout
-      logOutUser={() => logOutUser()}
+    const tree = renderer.create(<Logout
+      logOutUser={() => jest.fn()}
       authenticated={false}
-      user_id={''}
-      username={''}
+      username=''
     />).toJSON();
-    expect(Logout_tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   test('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Logout
-      logOutUser={() => logOutUser()}
+      logOutUser={() => jest.fn()}
       authenticated={false}
-      user_id={''}
-      username={''}
+      username=''
     />, div);
   });
 });
