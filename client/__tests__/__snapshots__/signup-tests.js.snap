@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Snapshot 1`] = `
+exports[`Signup Snapshot 1`] = `
 <div
-  id="login"
+  id="signup"
 >
   <h3>
-    Log In
+    Sign Up
   </h3>
   <form
     onSubmit={[Function]}
@@ -50,10 +50,6 @@ exports[`Login Snapshot 1`] = `
     </p>
     <p>
       Username: 
-      
-    </p>
-    <p>
-      User ID: 
       
     </p>
   </div>

@@ -22,10 +22,6 @@ exports[`Logout Snapshot 1`] = `
       Username: 
       
     </p>
-    <p>
-      User ID: 
-      
-    </p>
   </div>
 </div>
 `;
