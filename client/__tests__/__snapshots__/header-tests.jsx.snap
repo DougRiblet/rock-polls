@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Snapshot 1`] = `
+<header>
+  <nav>
+    <div
+      id="header-full"
+    >
+      <div
+        id="header-container"
+      >
+        <div
+          id="nav-left"
+        >
+          <Link
+            to="/"
+          >
+            Coding Polls
+          </Link>
+        </div>
+        <div
+          id="nav-right"
+        >
+          <div>
+            <Link
+              to="/login"
+            >
+              login
+            </Link>
+            <Link
+              to="/signup"
+            >
+              signup
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+`;

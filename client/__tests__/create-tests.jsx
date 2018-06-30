@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import Create from '../components/Create/create-presentational';
 
+jest.mock('random-id', () => {
+  let val = 1;
+  return () => ("abcdefghijklmnop" + val++);
+});
+
 describe('Create', () => {
   test('Snapshot', () => {
     const tree = renderer.create(<Create

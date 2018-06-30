@@ -33,7 +33,7 @@ exports[`Create Snapshot 1`] = `
       <input
         className="answer-input"
         maxLength="99"
-        name="5zdSnO7GqEpHqCTRUg"
+        name="abcdefghijklmnop1"
         onChange={[Function]}
         size="80"
         value=""
@@ -43,7 +43,7 @@ exports[`Create Snapshot 1`] = `
       <input
         className="answer-input"
         maxLength="99"
-        name="4V1hPhGWVk92qQ4wmF"
+        name="abcdefghijklmnop2"
         onChange={[Function]}
         size="80"
         value=""
