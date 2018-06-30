@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Snapshot 1`] = `
+<div
+  id="create"
+>
+  <div>
+    <h3>
+      Create New Poll
+    </h3>
+    <h4
+      className="create-label"
+    >
+      Question:
+    </h4>
+    <label>
+      <textarea
+        cols="90"
+        id="question-input"
+        maxLength="390"
+        onChange={[Function]}
+        rows="5"
+        value=""
+      />
+    </label>
+    <br />
+    <h4
+      className="create-label"
+    >
+      Answers:
+    </h4>
+    <label>
+      <input
+        className="answer-input"
+        maxLength="99"
+        name="5zdSnO7GqEpHqCTRUg"
+        onChange={[Function]}
+        size="80"
+        value=""
+      />
+    </label>
+    <label>
+      <input
+        className="answer-input"
+        maxLength="99"
+        name="4V1hPhGWVk92qQ4wmF"
+        onChange={[Function]}
+        size="80"
+        value=""
+      />
+    </label>
+    <div
+      className="create-buttons"
+    >
+      <button
+        onClick={[Function]}
+      >
+        Add Answer Field
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Preview Poll
+      </button>
+    </div>
+    <div
+      className="show-status"
+    >
+      <p>
+        Username: 
+        
+      </p>
+      <p>
+        User ID: 
+        
+      </p>
+    </div>
+  </div>
+</div>
+`;
