@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import Header from '../components/Header/header-presentational';
 
-jest.mock('react-router-dom', () => ({ Link: 'Link' }))
+jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 
 describe('Header', () => {
   test('Snapshot', () => {

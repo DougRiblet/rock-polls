@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import Listing from '../components/Listing/listing-presentational';
 
-jest.mock('react-router-dom', () => ({ Link: 'Link' }))
+jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 
 describe('Listing', () => {
   test('Snapshot', () => {

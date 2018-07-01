@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import Admin from '../components/Admin/admin-presentational';
 
-jest.mock('react-router-dom', () => ({ Link: 'Link' }))
+jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 
 describe('Admin', () => {
   test('Snapshot', () => {
