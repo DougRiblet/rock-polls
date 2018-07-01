@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Listing Snapshot 1`] = `
+<div
+  id="show-all-polls"
+>
+  <div
+    id="listing-head"
+  >
+    <h1>
+      Latest Polls
+    </h1>
+  </div>
+  <div
+    id="listing-list"
+  >
+    <p
+      className="loading"
+    >
+      L O A D I N G
+    </p>
+  </div>
+</div>
+`;
