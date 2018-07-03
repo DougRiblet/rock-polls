@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Single Snapshot 1`] = `
+<div
+  className="single"
+>
+  <div
+    className="backlink"
+  >
+    <Link
+      to="/"
+    >
+      back to polls list
+    </Link>
+  </div>
+  <div
+    className="single-body"
+  >
+    <h1>
+      
+    </h1>
+    <div>
+      <ul>
+        
+      </ul>
+      <div>
+        <p
+          className="alt-suggest"
+        >
+          Click your choice to vote. Logged-in users have a write-in option.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
